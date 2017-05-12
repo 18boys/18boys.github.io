@@ -1,0 +1,718 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+    <title>四六级方言考试</title>
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/game_answer.css">
+    <script type="text/javascript">
+        //声明_czc对象:
+        var _czc = _czc || [];
+        //绑定siteid，请用您的siteid替换下方"XXXXXXXX"部分
+        _czc.push(["_setAccount", "1257383238"]);
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return r[2]; return null;
+        }
+
+        if(getQueryString('cc')==null){
+            location.href = '/biz/momo_s01e01/startup?cc=0050';
+        }
+
+    </script>
+</head>
+<body id="body">
+<!--loading页-->
+<section class="page_loading">
+    <div class="loading_con">
+        <div class="loading_bar">
+            <img src="images/page_loading_bg.png" />
+            <div class="loading_progress"><img src="images/page_loading_plan.png" /></div>
+            <img src="images/page_loading_pen.png" class="loading_current" />
+        </div>
+        <p>loading...<span id="percent"></span></p>
+    </div>
+</section>
+<!--正文-->
+<main id="main">
+    <section class="page page_index curr">
+        <a href="javascript:;"  class="word">
+            <span class="word1"></span>
+            <span class="word2"></span>
+            <span class="word3"></span>
+            <span class="word4"></span>
+            <span class="word5"></span><br>
+            <span class="word6"></span>
+            <span class="word7"></span>
+            <span class="word8"></span>
+            <span class="word9"></span>
+            <span class="word10"></span>
+        </a>
+        <div class="clock">
+            <span class="clock_gnomon"></span>
+        </div>
+        <div class="new_person">
+            <img id="p0" class="new_person_img" src="./images/page1_3_1.png">
+            <img id="p1" class="new_person_img" src="./images/page1_3_2.png">
+            <img id="p2" class="new_person_img" src="./images/page1_3_3.png">
+            <img id="p3" class="new_person_img" src="./images/page1_3_4.png">
+            <img id="startBtn" class="start_btn" src="./images/start_1.png">
+            <a href="javascript:;" title="点击开始" class="startTest" id="start">
+                <span class="pointer"></span>
+            </a>
+        </div>
+    </section>
+    <section class="page page_test">
+        <!--第1题-->
+        <div class="test show">
+            <div class="qid">
+                <span class="curr">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">10</b></span></time>
+                <article class="topic basic_topic">
+                    <header class="topic_h">基础题</header>
+                    <figure class="topic_img"><img src="" alt="" class="basicImg"/></figure>
+                    <p class="topic_con basicQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A1" />
+                        <label for="A1"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B1" />
+                        <label for="B1"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C1" />
+                        <label for="C1"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D1" />
+                        <label for="D1"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第2题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span class="curr">2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">10</b></span></time>
+                <article class="topic basic_topic">
+                    <header class="topic_h">基础题</header>
+                    <figure class="topic_img"><img src="" alt="" class="basicImg"/></figure>
+                    <p class="topic_con basicQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A2" />
+                        <label for="A2"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B2" />
+                        <label for="B2"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C2" />
+                        <label for="C2"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D2" />
+                        <label for="D2"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第3题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span class="curr">3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">10</b></span></time>
+                <article class="topic basic_topic">
+                    <header class="topic_h">基础题</header>
+                    <figure class="topic_img"><img src="" alt="" class="basicImg"/></figure>
+                    <p class="topic_con basicQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A3" />
+                        <label for="A3"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B3" />
+                        <label for="B3"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C3" />
+                        <label for="C3"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D3" />
+                        <label for="D3"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第4题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span class="curr">4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">10</b></span></time>
+                <article class="topic basic_topic">
+                    <header class="topic_h">基础题</header>
+                    <figure class="topic_img"><img src="" alt="" class="basicImg"/></figure>
+                    <p class="topic_con basicQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A4" />
+                        <label for="A4"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B4" />
+                        <label for="B4"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C4" />
+                        <label for="C4"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D4" />
+                        <label for="D4"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第5题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span class="curr">5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">15</b></span></time>
+                <article class="topic voice_topic">
+                    <header class="topic_h">听力题</header>
+                    <a href="javascript:;" class="audition voiceAudio" title="试听" data-src="">
+                        <img src="images/pause.png" alt="" />
+                        <span class="pointer"></span>
+                    </a>
+                    <p class="topic_con voiceQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A5" />
+                        <label for="A5"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B5" />
+                        <label for="B5"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C5" />
+                        <label for="C5"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D5" />
+                        <label for="D5"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第6题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span class="curr">6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">15</b></span></time>
+                <article class="topic voice_topic">
+                    <header class="topic_h">听力题</header>
+                    <a href="javascript:;" class="audition voiceAudio" title="试听" data-src="">
+                        <img src="images/pause.png" alt="" />
+                        <span class="pointer"></span>
+                    </a>
+                    <p class="topic_con voiceQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A6" />
+                        <label for="A6"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B6" />
+                        <label for="B6"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C6" />
+                        <label for="C6"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D6" />
+                        <label for="D6"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第7题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span class="curr">7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">15</b></span></time>
+                <article class="topic voice_topic">
+                    <header class="topic_h">听力题</header>
+                    <a href="javascript:;" class="audition voiceAudio" title="试听" data-src="">
+                        <img src="images/pause.png" alt="" />
+                        <span class="pointer"></span>
+                    </a>
+                    <p class="topic_con voiceQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A7" />
+                        <label for="A7"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B7" />
+                        <label for="B7"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C7" />
+                        <label for="C7"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D7" />
+                        <label for="D7"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第8题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span class="curr">8</span>
+                <span>9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">15</b></span></time>
+                <article class="topic voice_topic">
+                    <header class="topic_h">听力题</header>
+                    <a href="javascript:;" class="audition voiceAudio" title="试听" data-src="">
+                        <img src="images/pause.png" alt="" />
+                        <span class="pointer"></span>
+                    </a>
+                    <p class="topic_con voiceQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A8" />
+                        <label for="A8"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B8" />
+                        <label for="B8"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C8" />
+                        <label for="C8"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D8" />
+                        <label for="D8"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第9题-->
+        <div class="test hide">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span class="curr">9</span>
+                <span>10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">10</b></span></time>
+                <article class="topic synthesize_topic">
+                    <header class="topic_h">综合题</header>
+                    <figure class="topic_img"><img src="" alt="" class="synthesizeImg"/></figure>
+                    <p class="topic_con synthesizeQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A9" />
+                        <label for="A9"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B9" />
+                        <label for="B9"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C9" />
+                        <label for="C9"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D9" />
+                        <label for="D9"></label>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <!--第10题-->
+        <div class="test hide" id="test_last">
+            <div class="qid">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span class="curr">10</span>
+            </div>
+            <div class="test_wrap">
+                <time class="test_time"><i></i><span>00:<b class="time">10</b></span></time>
+                <article class="topic synthesize_topic last">
+                    <header class="topic_h">综合题</header>
+                    <figure class="topic_img"><img src="" alt="" class="synthesizeImg"/></figure>
+                    <p class="topic_con synthesizeQuestion"></p>
+                </article>
+                <aside class="answer">
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="1" id="A10" />
+                        <label for="A10"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="2" id="B10" />
+                        <label for="B10"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="3" id="C10" />
+                        <label for="C10"></label>
+                    </div>
+                    <div class="answer_opt">
+                        <input type="radio" name="answer" value="4" id="D10" />
+                        <label for="D10"></label>
+                    </div>
+                </aside>
+                <a href="javascript:;" title="查看测试结果" class="end" id="end"></a>
+            </div>
+        </div>
+    </section>
+    <section class="page page_last" id="page_last">
+        <figure class="result">
+            <img src="" alt="" id="resultImg"/>
+            <p class="grade" id="grade"></p>
+        </figure>
+        <p class="defeat" id="slogan"></p>
+        <a href="javascript:;" title="晒晒我的成绩单" class="shareIn"></a>
+        <a href="javascript:;" title="和能听懂方言的老乡一起回家过年" class="noticeIn"></a>
+    </section>
+</main>
+
+<!--分享弹窗-->
+<div class="shareMask" id="shareMask">
+    <img src="images/shareMask.png" alt="" width="100%" />
+</div>
+
+<div class="shareMask" id="momoBanner">
+    <img src="images/momo_banner.png" alt="" width="100%" height="100%" />
+</div>
+<div style="display:none">
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257383238'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257383238' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/data.js"></script>
+<script src="js/index.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://cdnst.immomo.com/momofes/js/mobile/momo_bridge.2.0.4.min.js"></script>
+
+<script>
+
+
+    var tl = false;
+
+
+    if(/momoWebView/.test(window.navigator.userAgent)){
+
+        tl = true;
+
+        $("#momoBanner").on("touchstart",function(){
+            _czc.push(["_trackEvent", "陌陌官网", "跳转", "click", 1]);
+
+
+
+
+        });
+
+        $("#momoBanner").on("touchend",function(){
+
+            _czc.push(["_trackEvent", "陌陌官网", "跳转", "click", 1]);
+
+            location.href = 'http://m.immomo.com/activity/2015/together/index';
+
+
+        });
+
+        jQuery.ajax({
+            type : 'get',
+            url : "/biz/momo_s01e01/getMomoSign?url=" + location.pathname+location.search,
+            contentType : "application/json",
+            dataType : 'json',
+            success : function (data) {
+
+                if(data.success){
+                    mm.invoke('initConfig' , {
+                        randomstr: data.data.randomstr,  //随机串
+                        timestamp: data.data.timestamp,           //第三方应用服务器时间
+                        sign: data.data.sign,
+                        //签名，第三方应用通过ticket,timestamp,randomstr,url等参数，
+                        //按照签名规则之后的sha1值
+                        client_id: data.data.client_id   //第三方应用ID
+                        //客户端执行完initConfig，调用callback, 是页面上的全局变量。
+                        //调用其他invoke方法，没有权限时调用
+                    },function(){
+                        mm.init({
+                            enable : {
+                                share : 0,
+                                ui_btn: 1
+                            },
+                            share:  shareConfig,
+                            ui_btn: {
+                                title: '',
+                                dropdown: 0,
+                                buttons: [{
+                                    'text': '分享',
+                                    'action': 1,
+                                    'param': shareConfig,
+                                }]
+                            }
+                        })
+                    });
+
+                    var shareConfig = {
+                        title: '全国方言四六级考试',                   // 默认标题
+                        text: '英语四六级算什么，能过方言四六级才厉害，不服来战！',              // 默认内容详情
+                        url: 'http://'+location.hostname+'/biz/momo_s01e01/startup?cc='+getQueryString('cc'),        // 默认链接: 注意需要带上完整的protocal
+                        pic: 'http://'+location.hostname+'/biz/momo_s01e01/images/teseShare.jpg',
+                        // 默认分享图片,注意需要是外网可用的图片链接
+                        callback: '',                        // 回调函数
+                        apps: ['qzone', 'sina', 'momo_feed', 'momo_contacts', 'browser', 'qq', 'weixin', 'weixin_friend'],
+                        // Array: 页面分享时所需要显示的渠道
+                        configs: {                           // 页面分享的Apps的配置
+                                                             // 当分享时，相应渠道优先使用这里的配置。
+                                                             // 如果没有，则使用默认配置。
+                            momo_feed: {                     // 留言板单独配置
+                                title:"全国方言四六级考试",
+                                text:"方言四六级测试，学霸来战！",
+                                url:'http://'+location.hostname+'/biz/momo_s01e01/startup?cc='+getQueryString('cc'),
+                                pic:'http://'+location.hostname+'/biz/momo_s01e01/images/teseShare.jpg',   //pic为空或者没有这个字段的话则不显示图片
+                                resource:{
+                                    title:"全国方言四六级考试",
+                                    desc:"英语四六级算什么，能过方言四六级才厉害，不服来战！",
+                                    icon: 'http://'+location.hostname+'/biz/momo_s01e01/images/teseShare.jpg', // 小尾巴图标
+                                    link: 'http://'+location.hostname+'/biz/momo_s01e01/startup?cc='+getQueryString('cc'), // 小尾巴为链接时使用
+                                    debug: 1,               // 当debug 存在且为1时，此动态不会分享到附近。
+
+                                }
+                            }
+                        }
+                    }
+
+                    mm.init({
+                        enable : {
+                            share : 0,
+                            ui_btn: 1
+                        },
+                        share:  shareConfig,
+                        ui_btn: {
+                            title: '',
+                            dropdown: 0,
+                            buttons: [{
+                                'text': '分享',
+                                'action': 1,
+                                'param': shareConfig,
+                            }]
+                        }
+                    })
+
+
+                }
+            },
+            error : function (data) {
+                console.log(data.msg);
+            }
+        })
+    }else{
+
+        if(!tl){
+            $("#momoBanner").on("touchstart",function(){
+                _czc.push(["_trackEvent", "陌陌官网", "跳转", "click", 1]);
+            });
+
+            $("#momoBanner").on("touchstart",function(){
+                _czc.push(["_trackEvent", "陌陌官网", "跳转", "click", 1]);
+                location.href = 'http://www.immomo.com/';
+            });
+        }
+
+
+    }
+
+    var _share = {
+        title : '全国方言四六级考试',
+        desc : '英语四六级算什么，能过方言四六级才厉害，不服来战！',
+        icon : 'http://'+location.hostname+'/biz/momo_s01e01/images/teseShare.jpg',
+        link : 'http://'+location.hostname+'/biz/momo_s01e01/startup?cc='+getQueryString('cc')
+    };
+    jQuery.ajax({
+        type : 'get',
+        url : "http://"+location.hostname+"/biz/momo_s01e01/init",
+        contentType : "application/json",
+        dataType : 'json',
+        success : function (data) {
+            if(data.success){
+                wx.config({
+                    debug: false,
+                    appId: data.data.wechatSign.appId,
+                    timestamp: data.data.wechatSign.timestamp,
+                    nonceStr: data.data.wechatSign.nonceStr,
+                    signature: data.data.wechatSign.signature,
+                    jsApiList: [
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo'
+                    ]
+                });
+                wx.ready(function () {
+                    wx.onMenuShareTimeline({
+                        trigger: function(){
+                            this.title = _share.title; // 分享标题
+                            this.link = _share.link; // 分享链接
+                            this.imgUrl = _share.icon; // 分享图标
+                        },
+                        success: function(){
+                            _czc.push(["_trackEvent", "分享", "朋友圈", "", 1]);
+                        },  // 用户确认分享后执行的回调函数
+                        cancel: function(){}// 用户取消分享后执行的回调函数
+                    });
+                    wx.onMenuShareAppMessage({
+                        trigger: function(){
+                            this.title = _share.title; // 分享标题
+                            this.desc = _share.desc; // 分享描述
+                            this.link = _share.link; // 分享链接
+                            this.imgUrl = _share.icon; // 分享图标
+                        },
+                        success: function(){
+                            _czc.push(["_trackEvent", "分享", "朋友", "", 1]);
+                        },// 用户确认分享后执行的回调函数
+                        cancel: function() {}// 用户取消分享后执行的回调函数
+                    });
+                });
+            }
+            else{
+                alert(data.msg);
+            }
+        },
+        error : function (data) {
+            console.log(data.msg);
+        }
+    })
+</script>
+</body>
+</html>
+

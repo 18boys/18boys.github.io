@@ -1,4 +1,5 @@
-@import "./yo/lib/core/reset";
+//@import "./libs/yo/usage/core/reset";
+//@import "./libs/yo/usage/layout/yo-flex";
 
 // 适配font-size
 @media screen and (min-width: 280px) {html{font-size:87.5px;}}
@@ -9,3 +10,47 @@
 @media screen and (min-width: 480px) {html{font-size:150px;}}
 @media screen and (min-width: 520px) {html{font-size:162.5px;}}
 @media screen and (min-width: 540px) {html{font-size:168.75px;}}
+
+html,body {
+    height: 100%;
+    padding: 0;
+    margin:0;
+}
+
+.contain {
+    background: url("../../img/exam_backgroud.png")  no-repeat;
+    background-size: 100% 100% ;
+    height: 100%;
+}
+
+.happy-person {
+    height: 1.25rem;
+    position: absolute;
+    left: 0.05rem;
+    top: 0.4rem;
+}
+
+.english-word {
+    font-size: 0.25rem;
+    font-weight: bold;
+    position: absolute;
+    top: 1.7rem;
+    text-align: center;
+    width: 100%;
+}
+
+.exam {
+    position: absolute;
+    top:2.5rem;
+    width: 100%;
+    font-size: 0.25rem;
+    font-weight: bold;
+}
+
+.answer {
+    background: url("../../img/selection_background.png")  no-repeat;
+    height: 0.4rem;
+    text-align: center;
+    margin: 0.2rem 0.5rem;
+}
+

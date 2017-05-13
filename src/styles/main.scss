@@ -11,6 +11,11 @@
 // @media screen and (min-width: 520px) {html{font-size:162.5px;}}
 // @media screen and (min-width: 540px) {html{font-size:168.75px;}}
 
+@font-face {
+    font-family:'Chalkduster';
+    src:url('./font/Chalkduster.ttf');
+}
+
 .pageWrapper {
     width: 3.75rem;
     height: 6.67rem;
@@ -18,39 +23,42 @@
 }
 
 .contain {
-    background: url("../../img/exam_backgroud.png")  no-repeat;
-    background-size: 100% 100% ;
+    background: url("../../img/exam_backgroud.png") no-repeat;
+    background-size: 100% 100%;
     height: 100%;
 }
 
 .happy-person {
-    height: 1.25rem;
+    height: 1.5rem;
     position: absolute;
-    left: 0.05rem;
-    top: 0.4rem;
+    left: 0.1rem;
+    top: 0.5rem;
 }
 
 .english-word {
     font-size: 0.25rem;
     font-weight: bold;
     position: absolute;
-    top: 1.7rem;
+    top: 2.1rem;
     text-align: center;
     width: 100%;
 }
 
 .exam {
     position: absolute;
-    top:2.5rem;
+    top: 2.55rem;
     width: 100%;
-    font-size: 0.25rem;
+    font-size: 0.2rem;
     font-weight: bold;
+    font-family:'Chalkduster';
+    line-height: 0.45rem;
 }
 
 .answer {
-    background: url("../../img/selection_background.png")  no-repeat;
-    height: 0.4rem;
+    background: url("../../img/selection_background.png") no-repeat;
+    height: 0.45rem;
     text-align: center;
-    margin: 0.2rem 0.5rem;
+    margin: 0.1rem 0.6rem;
+    background-size: contain;
 }
 

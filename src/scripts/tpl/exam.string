@@ -1,0 +1,11 @@
+<div class="question font1">
+    {{question}}
+    {{#questionSuffix}}
+    <span>({{questionSuffix}})</span>
+    {{/questionSuffix}}
+</div>
+<ul class="answer">
+{{#answer}}
+    <li class="item" data-flag="{{flag}}" data-music="{{musix}}">{{text}}</li>
+{{/answer}}
+</ul>

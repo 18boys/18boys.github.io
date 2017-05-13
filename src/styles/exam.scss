@@ -1,9 +1,3 @@
-.pageWrapper {
-    width: 3.75rem;
-    height: 6.67rem;
-    @include transform-origin(top left);
-}
-
 .contain {
     background: url("../../img/exam_backgroud.png") no-repeat;
     background-size: 100% 100%;

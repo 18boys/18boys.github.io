@@ -1,0 +1,12 @@
+.start {
+    height: 100%;
+    background: url("../../img/start_back.jpg") no-repeat;
+    background-size: cover;
+
+    .person {
+        position: absolute;
+        top: 1.45rem;
+        left: 0.24rem;
+        height: 2.33rem;
+    }
+}

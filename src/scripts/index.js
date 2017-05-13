@@ -1,7 +1,7 @@
 /*[export]*/
 
 require('libs/zepto.min.js');
-require('./start')
+require('./start');
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,

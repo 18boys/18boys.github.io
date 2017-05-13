@@ -3,15 +3,18 @@
  *
  * Created by lishuai on 2017/5/13.
  */
-var $start_page = $('.start');
-var $start_select = $('.start-select');
-var $start_word = $start_page.find('.word');
-var $start_book1 = $start_page.find('.book1');
-var $start_book2 = $start_page.find('.book2');
-var $start_book3 = $start_page.find('.book3');
-var $start_person = $start_page.find('.person');
 
-$(function() {
+
+function init(){
+
+    var $start_page = $('.start');
+    var $start_select = $('.start-select');
+    var $start_word = $start_page.find('.word');
+    var $start_book1 = $start_page.find('.book1');
+    var $start_book2 = $start_page.find('.book2');
+    var $start_book3 = $start_page.find('.book3');
+    var $start_person = $start_page.find('.person');
+
     setTimeout(function() {
         $start_word.removeClass('animation-elastic').addClass('elastic-out-down');
         setTimeout(function() {
@@ -42,4 +45,6 @@ $(function() {
             }, 300)
         }, 300);
     }, 600);
-});
+}
+
+module.exports=init;

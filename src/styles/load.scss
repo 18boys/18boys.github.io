@@ -1,0 +1,26 @@
+@import "./libs/Yo/lib/ani/zoom-out";
+@import "./libs/Yo/lib/ani/zoom-in";
+
+.load {
+    height: 100%;
+    background: url("../../img/load-bg.jpg") no-repeat;
+    background-size: cover;
+
+    .process {
+        position: absolute;
+        top: 1.89rem;
+        left: .31rem;
+        height: 1.03rem;
+        width: 2.95rem;
+    }
+
+    .blood {
+        position: absolute;
+        top: 2.8rem;
+        left: .31rem;
+        height: .1rem;
+        width: 2.60rem;
+        border-radius: 0.1rem 0 0 0.1rem;
+        background: #63b472;
+    }
+}

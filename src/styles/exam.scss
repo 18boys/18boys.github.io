@@ -1,40 +1,75 @@
-.contain {
-    background: url("../../img/exam_backgroud.png") no-repeat;
-    background-size: 100% 100%;
-    height: 100%;
-}
-
-.happy-person {
-    height: 1.5rem;
-    position: absolute;
-    left: 0.1rem;
-    top: 0.5rem;
-}
-
-.english-word {
-    font-size: 0.25rem;
-    font-weight: bold;
-    position: absolute;
-    top: 2.1rem;
-    text-align: center;
-    width: 100%;
-}
-
 .exam {
-    position: absolute;
-    top: 2.55rem;
-    width: 100%;
-    font-size: 0.2rem;
-    font-weight: bold;
-    font-family:'Chalkduster';
-    line-height: 0.45rem;
-}
+    position: relative;
+    height: 100%;
+    background: url("../../img/exam-bottom-bg.jpg")  no-repeat;
+    background-size: 100% 100% ;
 
-.answer {
-    background: url("../../img/selection_background.png") no-repeat;
-    height: 0.45rem;
-    text-align: center;
-    margin: 0.1rem 0.6rem;
-    background-size: contain;
-}
+    .happy-person {
+        left: 0.05rem;
+        top: 0.05rem;
+        width: .85rem;
+        height: 1.35rem;
+        position: absolute;
+    }
+    .blood {
+        position: absolute;
+        top: .24rem;
+        left: .8rem;
+        width: 2.07rem;
+        height: .4rem;
 
+        * {
+            position: absolute;
+        }
+        .top {
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+        }
+        .middle {
+            top: .05rem;
+            left: .4rem;
+            width: 1rem;
+            height: .235rem;
+            background: #8bcd83;
+        }
+        .bottom {
+            top: .05rem;
+            left: .4rem;
+            width: 1.25rem;
+            height: .235rem;
+        }
+    }
+    .board {
+        position: absolute;
+        top: 1.17rem;
+        left: .58rem;
+        width: 2.59rem;
+        font-size: 0.25rem;
+        font-weight: bold;
+
+        .question {
+            @include align();
+            width: 100%;
+            height: .95rem;
+            font-size: 0.25rem;
+            font-weight: bold;
+        }
+    }
+    .top-bg-1,
+    .top-bg-2 {
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+    }
+    .top-bg-1 {
+        left: -.04rem;
+        width: 1.38rem;
+        height: 2.52rem;
+    }
+    .top-bg-2 {
+        right: 0;
+        width: 2.03rem;
+        height: 2.39rem;
+    }
+}

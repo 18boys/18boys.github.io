@@ -6,7 +6,7 @@ require('./start');
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,
     originWidth = 375,
-    originHeight = 667;
+    originHeight = 604;
 
 var Page = function() {
     this.$body = $('.pageWrapper');

@@ -16,7 +16,6 @@ Page.prototype = {
         this._reset();
     },
     _reset: function() {
-        console.log(screenWidth, originWidth, screenWidth / originWidth, screenHeight / originHeight);
         this.$body.css({
             '-webkit-transform': 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')',
             transform: 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')'

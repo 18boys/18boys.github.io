@@ -1,44 +1,57 @@
-.start {
+@import "./libs/Yo/lib/ani/zoom-in";
+@import "./animation";
+
+.start-select {
     height: 100%;
-    background: url("../../img/start_back.jpg") no-repeat;
+    background: url("../../img/start-select-bg.jpg") no-repeat;
     background-size: cover;
+    z-index:999;
+    @include  animation(zoom-in 0.5s  1s linear  1);
 
     .word {
         position: absolute;
-        top: .84rem;
-        left: .24rem;
-        height: 2.33rem;
+        top: 3.07rem;
+        height: 1.9rem;
+        width: 3.05rem;
+        left: 0.31rem;
+        z-index:999;
+        background: url("../../img/start-select-word.png") no-repeat;
+        background-size: cover;
     }
 
-    .person {
-        position: absolute;
-        top: 2.72rem;
-        left: 1.73rem;
-        height: 2.78rem;
-        width: 1.5rem;
+
+    .animation-word-in {
+        animation: word-in 4s linear 1;
     }
 
-    .book1 {
-        position: absolute;
-        top: 3.42rem;
-        left: .83rem;
-        height: .5rem;
-        width: .9rem;
+    .animation-button-in {
+        animation: button-in 1s  linear 1;
     }
 
-    .book2 {
+    .button-4 {
         position: absolute;
-        top: 4.07rem;
-        left: 1.02rem;
-        height: .62rem;
-        width: .61rem;
+        top: 5.23rem;
+        left: .27rem;
+        height: .44rem;
+        width: 1.41rem;
     }
 
-    .book3 {
+    .button-4-bg {
+        @extend .button-4;
+        background: url("../../img/start-select-4.png") no-repeat;
+        background-size: cover;
+    }
+
+    .button-6 {
         position: absolute;
-        top: 2.93rem;
-        right: .18rem;
-        height: .37rem;
-        width: .60rem;
+        top: 5.23rem;
+        right: .27rem;
+        height: .44rem;
+        width: 1.41rem;
+    }
+    .button-6-bg {
+        @extend .button-6;
+        background: url("../../img/start-select-6.png") no-repeat;
+        background-size: cover;
     }
 }

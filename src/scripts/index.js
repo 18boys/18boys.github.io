@@ -2,6 +2,7 @@
 
 require('libs/zepto.min.js');
 require('./start');
+require('./start-select');
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,

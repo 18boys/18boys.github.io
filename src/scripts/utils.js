@@ -10,20 +10,20 @@
  * @param target 目标数量
  */
 
-function getRandomList(list,target){
+function getRandomList(list, target){
     if(list.length<target){
         return list;
     }
     var result = [];
     var size = list.length;
 
-    for (var i = target; i > 0; i--,size--) {
+    for (var i = target; i > 0; i--, size--) {
         var index = Math.floor((Math.random()) * size);
-        result.push(list.splice(index,1)[0]);
+        result.push(list.splice(index, 1)[0]);
     }
     return result;
 }
 
 module.exports={
-    getRandomList : getRandomList
+    getRandomList : getRandomList 
 };

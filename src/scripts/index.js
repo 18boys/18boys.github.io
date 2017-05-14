@@ -1,12 +1,16 @@
 /*[export]*/
 
 require('libs/zepto.min.js');
+var FastClick = require('libs/fastclick');
 require('./load');
+require('./exam');
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,
     originWidth = 375,
     originHeight = 604;
+
+FastClick(document.body);
 
 var Page = function() {
     this.$body = $('.pageWrapper');

@@ -4,6 +4,7 @@
 @import "./start-select.scss";
 @import "./result.scss";
 @import "./exam.scss";
+@import "./share.scss";
 
 @font-face {
     font-family:'Chalkduster';
@@ -26,4 +27,8 @@ html {
 
 .hide {
     display: none;
+}
+
+.show {
+    display: block;
 }

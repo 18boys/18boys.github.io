@@ -6,13 +6,13 @@
     background: url("../../img/start-select-bg.jpg") no-repeat;
     background-size: cover;
     z-index:999;
-    @include  animation(zoom-in 0.5s  1s linear  1);
+    @include  animation(zoom-in 0.5s linear  1);
 
     .word {
         position: absolute;
         top: 3.07rem;
-        height: 1.9rem;
-        width: 3.05rem;
+        height: 1.88rem;
+        width: 2.99rem;
         left: 0.31rem;
         z-index:999;
         background: url("../../img/start-select-word.png") no-repeat;

@@ -1317,7 +1317,7 @@ var voiceSourceList = finalQuestionArr.map(function(item) {
 var path = '..';
 var Exam = function(params) {
     this.params = params;
-    
+
     this.$container = $('.exam');
     // 题目面包dom节点
     this.$board = this.$container.find('.board');
@@ -1478,12 +1478,6 @@ Exam.prototype = {
         this.$middle.css('width', this.score / 725 * 124 / 100 + 'rem');
     }
 };
-
-new Exam({
-    finishHandler: function() {
-        console.log('finish');
-    }
-});
 
 module.exports = {
     voiceSourceList: voiceSourceList,

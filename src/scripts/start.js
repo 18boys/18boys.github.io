@@ -1,4 +1,4 @@
-function init(){
+function init(cb) {
 
     var $start_page = $('.start');
     var $start_select = $('.start-select');
@@ -7,14 +7,15 @@ function init(){
     var $start_book2 = $start_page.find('.book2');
     var $start_book3 = $start_page.find('.book3');
     var $start_person = $start_page.find('.person');
-
-    $start_word.addClass('animation-elastic');
+    $start_page.removeClass('hide');
+    $start_word.removeClass('hide').addClass('animation-elastic');
     $start_book1.addClass('animation-rotate-out');
+
     setTimeout(function() {
         $start_word.removeClass('animation-elastic').addClass('elastic-out-down');
         setTimeout(function() {
-            $start_word.css('display', 'none');
-        }, 400)
+            $start_word.addClass('hide');
+        }, 400);
     }, 1300);
 
     setTimeout(function() {
@@ -22,24 +23,24 @@ function init(){
         setTimeout(function() {
             $start_book3.addClass('animation-rotate-out-reverse');
             setTimeout(function() {
-                $start_book1.css('display', 'none');
+                $start_book1.addClass('hide');
                 $start_person.addClass('animation-rotate-out-person');
                 setTimeout(function() {
-                    $start_book2.css('display', 'none');
+                    $start_book2.addClass('hide');
                     setTimeout(function() {
-                        $start_book3.css('display', 'none');
-                        $start_person.css('display', 'none');
+                        $start_book3.addClass('hide');
+                        $start_person.addClass('hide');
                         $start_page.addClass('animation-rotate-out-person');
-                        $start_select.css('display', 'block');
+                        $start_select.removeClass('hide');
                         setTimeout(function() {
-                            $start_page.css('display', 'none');
-                            $start_select.css('display', 'block');
-                        }, 1000)
-                    }, 300)
-                }, 300)
-            }, 300)
+                            $start_page.addClass('hide');
+                            cb && cb();
+                        }, 1000);
+                    }, 300);
+                }, 300);
+            }, 300);
         }, 300);
     }, 600);
 }
 
-module.exports=init;
+module.exports = init;

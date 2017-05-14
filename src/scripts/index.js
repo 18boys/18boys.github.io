@@ -1,17 +1,18 @@
 /*[export]*/
-
 require('libs/zepto.min.js');
 var FastClick = require('libs/fastclick');
+var loadPage = require('./load');
+var initSelectPage = require('./start-select');
+var initStart = require('./start');
 var exam = require('./exam');
-var result = require('./result');
-require('./load');
+var Result = require('./result');
+
+FastClick(document.body);
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,
     originWidth = 375,
     originHeight = 604;
-
-FastClick(document.body);
 
 var Page = function() {
     this.$body = $('.pageWrapper');
@@ -30,3 +31,18 @@ Page.prototype = {
 };
 
 new Page();
+
+loadPage.init(
+    function() {
+        initStart(function() {
+            initSelectPage(function() {
+                    var examer = new exam.Exam({
+                        finishHandler: function() {
+                            new Result(examer.score);
+                        }
+                    });
+                }
+            );
+        });
+    }
+);

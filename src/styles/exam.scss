@@ -160,6 +160,10 @@
                     background: url("../../img/exam-answer-success-status.jpg");
                     background-size: .26rem .235rem;
                 }
+                &.on::after {
+                    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAAvCAMAAACbtxmBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIRQTFRFiYeEhYSDhoWDkY+H1M2dx8GZhIOCkpCHvrmVu7aUlJGIp6OO0Mmbv7qWzMaam5mKubSUnpuLmJWJlpSIy8WazsibqKWOw72XzceaoZ2MuLOTn5yLpqKN08ycwryXmZaJr6uRu7aVwLuWjYuFkI6Gxb+Yo6CNycOZ1c6dg4KCysCvAAAA3wjahgAAACx0Uk5T/////////////////////////////////////////////////////////wDH1gmMAAABEUlEQVR42rzW23KCMBAG4Cieam09a9W22oO6y77/+5UkEAIS2KWtewOzk2/+i2wmUUQxlSrWlf25Rt4l5XWYJURZtiIXyqt7opiHsAo1KUQ5wpZISRGiH8VDxny3QTMQIWOiHkj2yRj8ADka54aDbNBIhKxZeoaNPkXImqNvgsjtv0VbDnJTY820YAJoiOmw2S+eA6igHrro17xoAgjelWcGfR6C/leOdiUTGliA58gFXZkoUZNFii4VJnA0AN4OxnRWfJSo3qNGr2VThxIFJ8Tuiwhpte9sbkw90uppLUVa3ZomRHUofKAqTDOiVoj+Dumb0N6I0qT/R2b1b5D/iOEi0aOFxCjOkE0lBk/X/ggwAHLwkcQeP/pEAAAAAElFTkSuQmCC);
+                    background-size: .26rem .235rem;
+                }
                 &:nth-child(3) {
                     margin-bottom: .17rem;
                 }

@@ -1377,6 +1377,8 @@ Exam.prototype = {
             if (_this.$nextWrapper.hasClass('hide')) {
                 var $item = $(this);
 
+                $('.exam .item').removeClass('on');
+                $item.addClass('on');
                 _this.flag = $item.data('flag');
                 _this.$submit.removeClass('hide');
             }
@@ -1387,7 +1389,7 @@ Exam.prototype = {
             if (_this.flag) {
                 _this.questionList[_this.index].answer.forEach(function(item, i) {
                     if (item.flag) {
-                        _this.$container.find('.item').eq(i).addClass('success');
+                        _this.$container.find('.item').eq(i).removeClass('on').addClass('success');
                     }
                 });
                 _this.$happyPerson.removeClass('hide');

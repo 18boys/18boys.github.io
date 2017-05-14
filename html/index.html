@@ -30,8 +30,8 @@
         </div>
         <div class="start-select hide">
                 <div class="word hide"></div>
-                <div class="js-button button-4-bg hide"></div>
-                <div class="js-button button-6-bg hide"></div>
+                <div class="js-button button-4-bg hide" data-rlog="levelfour"></div>
+                <div class="js-button button-6-bg hide" data-rlog="levelsix"></div>
         </div>
         <div class="exam hide">
             <img src="../img/exam-city.png" class="city hide">
@@ -79,7 +79,7 @@
             <span class="score"></span>
             <span class="score copy"></span>
             <img class="img" src="" />
-            <div class="jump"></div>
+            <div class="jump" data-rlog="viewcourse"></div>
             <div class="show"></div>
             <div class="share hide">
                 <img class="share-brave" src="/img/share-brave.png" >
@@ -92,6 +92,26 @@
         </div>
 
     </div>
+    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="//shared.ydstatic.com/js/rlog/v1.js"></script>
     <script type="text/javascript" src="../prd/scripts/index.js"></script>
+    <script>
+        var _rlog = _rlog || [];
+        _rlog.push(["_setAccount" , "course_market"]);
+
+        wx.config({
+            debug: false
+        });
+        wx.ready(function() {
+            wx.onMenuShareTimeline({
+                success: function() {
+                    alert('success');
+                },
+                cancel: function() {
+                    alert('cancel');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

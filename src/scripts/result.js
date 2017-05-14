@@ -17,8 +17,7 @@ Result.prototype = {
     },
     render: function() {
         var score = this.score,
-            src,
-            className;
+            src;
 
         if (score < 250) {
             src = '../img/result-250.jpg';
@@ -36,7 +35,7 @@ Result.prototype = {
         }
 
         this.$score.html(score);
-        this.$img.addClass(className).attr('src', src);
+        this.$img.attr('src', src);
     },
     _bindEvent: function() {
         // 点击过级按钮

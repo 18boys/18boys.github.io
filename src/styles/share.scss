@@ -7,13 +7,20 @@
     left: 0;
     right: 0;
 
-    .share-img {
+    .share-brave {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 1.03rem;
+        width: 2.95rem;
+    }
+
+    .share-word{
         position: absolute;
         top: 1.89rem;
         left: .31rem;
         height: 1.03rem;
         width: 2.95rem;
-        background: url("../../img/load-bg.jpg") no-repeat;
     }
 
 }

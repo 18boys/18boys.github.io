@@ -1479,12 +1479,6 @@ Exam.prototype = {
     }
 };
 
-new Exam({
-    finishHandler: function() {
-        console.log('finish');
-    }
-});
-
 module.exports = {
     voiceSourceList: voiceSourceList,
     Exam: Exam

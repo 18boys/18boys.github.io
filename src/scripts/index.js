@@ -5,7 +5,7 @@ var loadPage = require('./load');
 var initSelectPage = require('./start-select');
 var initStart = require('./start');
 var exam = require('./exam');
-var result = require('./result');
+var Result = require('./result');
 
 FastClick(document.body);
 
@@ -32,17 +32,17 @@ Page.prototype = {
 
 new Page();
 
-//loadPage.init(
-//    function() {
-//        initStart(function() {
-//            initSelectPage(function() {
-//                    gotoExamPage();
-//                }
-//            )
-//        })
-//    }
-//);
-
-function gotoExamPage() {
-    alert("ds")
-}
+loadPage.init(
+    function() {
+        initStart(function() {
+            initSelectPage(function() {
+                    var examer = new exam.Exam({
+                        finishHandler: function() {
+                            new Result(examer.score);
+                        }
+                    });
+                }
+            );
+        });
+    }
+);

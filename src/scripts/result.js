@@ -7,6 +7,9 @@ var Result = function(score) {
     this.$img = this.$container.find('.img');
     this.$jump = this.$container.find('.jump');
     this.$show = this.$container.find('.show');
+    this.$share = $('.share');
+    this.$share_word = this.$share.find('');
+    this.$princess =$('.princess');
     this.init(score);
 };
 Result.prototype = {
@@ -38,13 +41,14 @@ Result.prototype = {
         this.$img.attr('src', src);
     },
     _bindEvent: function() {
-        // 点击过级按钮
-        $(document).on('click', '.result .jump', function() {
-            console.log('jump');
 
-        // 点击即见公主按钮
+        var  _this=this;
+        $(document).on('click', '.result .jump', function() {
+            _this.$princess.removeClass('hide').addClass('show');
         }).on('click', '.result .show', function() {
-            console.log('show');
+            var src=_this.score >= 696? '/img/share-word-1.png':'/img/share-word-2.png';
+            _this.$share_word.attr('src',src);
+            _this.$share.removeClass('hide').addClass('show');
         });
     }
 };

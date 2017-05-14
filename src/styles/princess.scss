@@ -1,0 +1,26 @@
+.princess {
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .princess-bg {
+        position: absolute;
+        top: 1rem;
+        left: 0.55rem;
+        height: 3.17rem;
+        width: 2.68rem;
+    }
+
+    .princess-word{
+        position: absolute;
+        top: 0.9rem;
+        left: 0.55rem;
+        height: 3.33rem;
+        width: 2.69rem;
+    }
+
+}

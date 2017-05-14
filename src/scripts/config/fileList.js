@@ -1,7 +1,5 @@
 module.exports = [
     {"path": "30.png", "type": "img"},
-    {"path": "confirm.png", "type": "img"},
-    {"path": "correct_sign.png", "type": "img"},
     {"path": "exam-answer-default-status.jpg", "type": "img"},
     {"path": "exam-answer-success-status.jpg", "type": "img"},
     {"path": "exam-answer.jpg", "type": "img"},
@@ -24,7 +22,6 @@ module.exports = [
     {"path": "load-bg.jpg", "type": "img"},
     {"path": "load-person.png", "type": "img"},
     {"path": "load-process.png", "type": "img"},
-    {"path": "no_select.png", "type": "img"},
     {"path": "selection_background.png", "type": "img"},
     {"path": "start-select-4.png", "type": "img"},
     {"path": "start-select-6.png", "type": "img"},

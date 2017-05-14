@@ -36,13 +36,13 @@ PreLoading.prototype = {
         _this.loadInterval = setInterval(function() {
             if (_this.i < len) {
                 if (_this.fileList[_this.i]['type'] == 'img') {
-                    fileAry[_this.i] = new Image;
+                    fileAry[_this.i] = new Image();
                     fileAry[_this.i].onload = _this.loadPage(_this);
-                    fileAry[_this.i].src = _this.imgPath + "/" + _this.fileList[_this.i]['path'];
+                    fileAry[_this.i].src = _this.imgPath + '/' + _this.fileList[_this.i]['path'];
                 } else if (_this.fileList[_this.i]['type'] == 'voice') {
-                    fileAry[_this.i] = new Audio;
+                    fileAry[_this.i] = new Audio();
                     fileAry[_this.i].onloadedmetadata = _this.loadPage(_this);
-                    fileAry[_this.i].src = _this.voicePath + "/" + _this.fileList[_this.i]['path'];
+                    fileAry[_this.i].src = _this.voicePath + '/' + _this.fileList[_this.i]['path'];
                 }
                 _this.i++;
             } else {
@@ -65,7 +65,7 @@ PreLoading.prototype = {
 
 function init(cb) {
     $load_page.addClass('show');
-    var bg_music = new Audio;
+    var bg_music = new Audio();
     bg_music.src='../../voice/bg.mp3';
 
     bg_music.autoplay = true;
@@ -80,8 +80,8 @@ function init(cb) {
             loading: function(percent) {
                 percent = Math.min(percent, 95);
                 var left = blood_left + blood_width * percent / 100;
-                $(".loading-current").width(percent + "%");
-                $load_person.css('left', left + "px");
+                $('.loading-current').width(percent + '%');
+                $load_person.css('left', left + 'px');
                 $('#percent').html(percent);
             },
             complete: function() {

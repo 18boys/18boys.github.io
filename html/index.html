@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="pageWrapper">
-        <div class="start">
+        <div class="start hide">
             <img src="../img/start_word.png" class="word animation-elastic">
             <img src="../img/start_book1.png" class="book1 animation-rotate-out">
             <img src="../img/start_book2.png" class="book2">
@@ -24,21 +24,28 @@
                 <!--<img src="../img/start-select-6.png" class="button-6" style="display: none">-->
         </div>
         <div class="exam hide">
-            <img src="../img/exam-city.png" class="city">
-            <img src="../img/exam-success-person.png" class="happy-person hide">
-            <img src="../img/exam-fail-person.png" class="unhappy-person hide">
+            <img src="../img/exam-city.png" class="city hide">
+            <img src="../img/exam-success-person.png" class="happy-person hide ani elastic-in-left">
+            <img src="../img/exam-fail-person.png" class="unhappy-person hide ani elastic-in-down">
+            <span class="success-number fade-in-down ani hide">+ 30</span>
+            <span class="fail-number fade-in-down ani hide">- 40</span>
+
+            <!--血槽-->
             <div class="blood">
                 <img class="bottom" src="../img/exam-blood-1.png" />
                 <div class="middle"></div>
                 <img class="top" src="../img/exam-blood-2.png" />
-                <div class="num font1"><span class="index">1/10</span></div>
+                <div class="num font1">1 / 10</div>
                 <div class="bg"></div>
             </div>
 
             <!--答题区域-->
             <div class="board"></div>
 
+            <!--确定按钮-->
             <div class="btn hide"></div>
+
+            <!--点击确定之后下一题的容器-->
             <div class="nextWrapper hide">
                 <img class="people" src="../img/exam-people.png" />
                 <img class="music" src="../img/exam-music.png" />
@@ -49,6 +56,21 @@
             <img class="top-bg-2" src="../img/exam-top-bg-2.png">
             <img class="top-bg-3" src="../img/exam-top-bg-3.png">
             <img class="top-bg-4" src="../img/exam-top-bg-4.png">
+
+            <!--点击文字解析的容器-->
+            <div class="explain-layout hide">
+                <div class="container"></div>
+                <div class="close"></div>
+                <div class="next"></div>
+                <ul></ul>
+            </div>
+        </div>
+        <div class="result hide">
+            <span class="score"></span>
+            <span class="score copy"></span>
+            <img class="img" src="" />
+            <div class="jump"></div>
+            <div class="show"></div>
         </div>
     </div>
     <script type="text/javascript" src="../prd/scripts/index.js"></script>

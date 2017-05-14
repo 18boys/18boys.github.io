@@ -3,8 +3,9 @@
 require('libs/zepto.min.js');
 var FastClick = require('libs/fastclick');
 require('./start');
-require('./exam');
+var exam = require('./exam');
 require('./start-select');
+var result = require('./result');
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,

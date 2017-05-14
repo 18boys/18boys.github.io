@@ -1,3 +1,7 @@
+@import "./libs/Yo/lib/ani/elastic-in-left";
+@import "./libs/Yo/lib/ani/elastic-in-down";
+@import "./libs/Yo/lib/ani/fade-in-down";
+
 .exam {
     position: relative;
     height: 100%;
@@ -27,6 +31,20 @@
         width: .51rem;
         height: 1rem;
     }
+    .success-number,
+    .fail-number {
+        position: absolute;
+        font-size: .15rem;
+        color: #92dba0;
+    }
+    .success-number {
+        top: .1rem;
+        right: .9rem;
+    }
+    .fail-number {
+        top: .45rem;
+        right: .92rem;
+    }
     .blood {
         position: absolute;
         top: .24rem;
@@ -46,9 +64,10 @@
             z-index: 1;
             top: .07rem;
             left: .4rem;
-            width: 1rem;
+            width: .72rem;
             height: .235rem;
             background: #8bcd83;
+            @include transition(width 1s);
 
             &::after {
                 position: absolute;
@@ -62,28 +81,23 @@
             }
         }
         .bottom {
-            top: .05rem;
+            top: .07rem;
             left: .4rem;
             width: 1.25rem;
             height: .235rem;
         }
         .num {
             z-index: 4;
-            left: .8rem;
-            top: .12rem;
-            width: .44rem;
-            height: .14rem;
-            line-height: .14rem;
-            @include transform(skew(20deg));
-            background: #2b5666;
+            left: .85rem;
+            top: .1rem;
+            width: .5rem;
+            height: .15rem;
+            line-height: .15rem;
+            background: url("../../img/exam-blood-middle.png") no-repeat;
+            background-size: 100% 100%;
             text-align: center;
             font-size: .12rem;
             color: #f4d959;
-
-            > span {
-                margin-left: -.12rem;
-                @include transform(skew(-20deg));
-            }
         }
         .bg {
             z-index: 5;
@@ -237,5 +251,60 @@
         right: .18rem;
         width: 1.76rem;
         height: .68rem;
+    }
+    .explain-layout {
+        z-index: 1000;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .7);
+
+        > * {
+            position: absolute;
+        }
+        .container {
+            top: 1.09rem;
+            left: .48rem;
+            width: 2.78rem;
+            height: 3.7rem;
+            background: url("../../img/exam-explain-layout.png");
+            background-size: 100% 100%;
+        }
+        .close {
+            top: 1.06rem;
+            right: .62rem;
+            width: .32rem;
+            height: .32rem;
+        }
+        .next {
+            top: 4.02rem;
+            left: 1.06rem;
+            width: 1.62rem;
+            height: .33rem;
+        }
+        ul {
+            left: .83rem;
+            top: 2.15rem;
+            font-size: .13rem;
+
+            li:nth-child(1) {
+                font-size: .11rem;
+
+                span {
+                    font-weight: 500;
+                    font-size: .18rem;
+                }
+            }
+            li:nth-child(2) {
+                margin-bottom: .17rem;
+                color: #f2e858;
+                font-size: .12rem;
+            }
+            li:nth-child(n + 3) {
+                margin-bottom: .09rem;
+            }
+        }
     }
 }

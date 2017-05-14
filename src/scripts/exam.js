@@ -1310,14 +1310,21 @@ var questionArr = [
 
 
 var test = 1;
-var Exam = function() {
+
+var voiceSourceList = finalQuestionArr.map(function(item) {
+    return '/voice/' + item.question + '.mp3';
+});
+var path = '..';
+var Exam = function(params) {
+    this.params = params;
+    
     this.$container = $('.exam');
     // 题目面包dom节点
     this.$board = this.$container.find('.board');
     // 血条dom节点
     this.$middle = this.$container.find('.middle');
     // 数字索引dom节点
-    this.$index = this.$container.find('.index');
+    this.$num = this.$container.find('.num');
     // 回答正确人物图片dom节点
     this.$happyPerson = this.$container.find('.happy-person');
     // 回答错误人物图片dom节点
@@ -1330,27 +1337,35 @@ var Exam = function() {
     this.$music = this.$container.find('.music');
     // 查看文字解析dom节点
     this.$explain = this.$container.find('.explain');
-    // 下一题dom节点
-    this.$next = this.$container.find('.next');
+    // 文字解析面板容器
+    this.$explainLayout = this.$container.find('.explain-layout');
+    // 错误的城堡dom节点
+    this.$city = this.$container.find('.city');
+    // 正确的时候的指示器
+    this.$successNumber = this.$container.find('.success-number');
+    // 错误的时候的指示器
+    this.$failNumber = this.$container.find('.fail-number');
 
+    this.soundVoice = new Audio();
+    this.playFlag = false;
     this.questionList = finalQuestionArr;
     this.template = hogan.compile(tpl);
     this.index = 0;
+    this.score = 425;
     this.init();
-    console.log(this.questionList[0]);
 };
 Exam.prototype = {
     init: function() {
         this.$container.removeClass('hide');
         this._bindEvent();
+        this._renderBlood(425);
         this.render(0);
     },
     render(index) {
         var width = 12.5 * (index + 1);
 
         this.index = index;
-        this.$middle.css('width', width / 100 + 'rem');
-        this.$index.html(index + 1 + '/' + 10);
+        this.$num.html(index + 1 + ' / ' + 10);
         this.$board.html(this.template.render(this.questionList[index]));
     },
     _bindEvent: function() {
@@ -1358,22 +1373,31 @@ Exam.prototype = {
 
         // 点击选项
         $(document).on('click', '.exam .answer .item', function(e) {
-            var $item = $(this);
+            // 防止出现下一题的时候又出现确定按钮
+            if (_this.$nextWrapper.hasClass('hide')) {
+                var $item = $(this);
 
-            _this.flag = $item.data('flag');
-            _this.$submit.removeClass('hide');
+                _this.flag = $item.data('flag');
+                _this.$submit.removeClass('hide');
+            }
         
         // 点击确定
         }).on('click', '.exam .btn', function() {
             // 回答正确
-            if (_this.flag) {_this.questionList[_this.index].answer.forEach(function(item, i) {
+            if (_this.flag) {
+                _this.questionList[_this.index].answer.forEach(function(item, i) {
                     if (item.flag) {
                         _this.$container.find('.item').eq(i).addClass('success');
                     }
                 });
                 _this.$happyPerson.removeClass('hide');
+                _this._renderBlood(true);
+                _this.$successNumber.removeClass('hide');
             } else {
+                _this.$city.removeClass('hide');
                 _this.$unhappyPerson.removeClass('hide');
+                _this._renderBlood(false);
+                _this.$failNumber.removeClass('hide');
             }
 
             _this.$board.addClass('on');
@@ -1385,14 +1409,28 @@ Exam.prototype = {
             _this.$music.attr('src', '../img/exam-music-on.png');
 
             // 播放音乐
-        
+            _this.soundVoice.src = path + voiceSourceList[_this.index];
+            _this.soundVoice.play();
+            _this.playFlag = true;
+
         // 点击文字解析
         }).on('click', '.exam .explain', function() {
-            console.log('文字解析');
+            _this.$explainLayout.removeClass('hide');
+            _this._renderExplain(_this.questionList[_this.index]);
+
         // 点击下一题
         }).on('click', '.exam .next', function() {
+            // 全部回答完毕
+            if (_this.index + 1 === 10) {
+                _this.$container.addClass('hide');
+                return _this.params.finishHandler();
+            }
             _this._reset();
             _this.render(_this.index + 1);
+
+        // 点击关闭文字解析
+        }).on('click', '.exam .close', function() {
+            _this.$explainLayout.addClass('hide');
         });
     },
     _reset: function() {
@@ -1401,7 +1439,53 @@ Exam.prototype = {
         this.$board.removeClass('on');
         this.$nextWrapper.addClass('hide');
         this.$music.attr('src', '../img/exam-music.png');
+        this.$explainLayout.addClass('hide');
+        this.$city.addClass('hide');
+        this.$successNumber.addClass('hide');
+        this.$failNumber.addClass('hide');
+
+        if (this.playFlag) {
+            this.playFlag = false;
+            this.soundVoice.pause();
+        }
+    },
+    _renderExplain(data) {
+        var htmlStr = '' +
+            '<li><span>' + data.phonetic[0] + '</span>&nbsp;&nbsp;&nbsp;&nbsp;' + data.phonetic[1] + '</li>\
+            <li>' + data.explain + '</li>\
+            <li>' + data.answer[0].explain[0] + ' ' + data.answer[0].explain[1] + ' ' + data.answer[0].explain[2] + '</li>\
+            <li>' + data.answer[1].explain[0] + ' ' + data.answer[1].explain[1] + ' ' + data.answer[1].explain[2] + '</li>\
+            <li>' + data.answer[2].explain[0] + ' ' + data.answer[2].explain[1] + ' ' + data.answer[2].explain[2] + '</li>\
+            <li>' + data.answer[3].explain[0] + ' ' + data.answer[3].explain[1] + ' ' + data.answer[3].explain[2] + '</li>';
+
+        this.$explainLayout.find('ul').html(htmlStr);
+    },
+    // 血槽
+    _renderBlood(flag) {
+        /**
+         * true 表示加血
+         * false 表示减血
+         * 否则直接修改为所传值
+         */
+        if (flag === true) {
+            this.score += 30;
+        } else if (flag === false) {
+            this.score += -40;
+        } else {
+            this.score = flag;
+        }
+
+        this.$middle.css('width', this.score / 725 * 124 / 100 + 'rem');
     }
 };
 
-new Exam();
+new Exam({
+    finishHandler: function() {
+        console.log('finish');
+    }
+});
+
+module.exports = {
+    voiceSourceList: voiceSourceList,
+    Exam: Exam
+};

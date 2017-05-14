@@ -4,7 +4,8 @@ var FastClick = require('libs/fastclick');
 var loadPage = require('./load');
 var initSelectPage = require('./start-select');
 var initStart = require('./start');
-require('./exam');
+var exam = require('./exam');
+var result = require('./result');
 
 FastClick(document.body);
 

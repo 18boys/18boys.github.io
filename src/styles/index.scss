@@ -2,12 +2,17 @@
 @import "./load.scss";
 @import "./start.scss";
 @import "./start-select.scss";
+@import "./result.scss";
 @import "./exam.scss";
 @import "./share.scss";
 
 @font-face {
     font-family:'Chalkduster';
     src:url('../../font/Chalkduster.ttf');
+}
+
+html {
+    font-size: 100px;
 }
 
 .pageWrapper {

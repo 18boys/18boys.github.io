@@ -1,13 +1,97 @@
 /**
- *
- * Created by lishuai on 2017/5/13.
+ * 选择四六级选项页面
  */
 
-var initStartPage=require('./start');
-var initStartSelectPage=require('./start-select');
+require('libs/zepto.min.js');
+var fileList = require('./config/fileList');
+
+var $load_page = $('.load');
+var $load_blood = $load_page.find('.blood');
+var $load_person = $load_page.find('.person');
+var blood_left = parseFloat($load_blood.css('left'));
+var blood_width = parseFloat($load_blood.css('width'));
 
 
-//initStartPage();
-//initStartSelectPage();
+var PreLoading = function(options) {
 
+    // 图片路径
+    this.imgPath = '/img';
+    // 题目语音路径
+    this.voicePath = '/voice';
+    // 页面imglist集合
+    this.fileList = fileList;
+    // 使用配置参数
+    this.options = options;
+    this.makeLoadPage();
+};
 
+PreLoading.prototype = {
+
+    fileCount: 0,
+    i: 0,
+    makeLoadPage: function() {
+        var _this = this,
+            len = _this.fileList.length,
+            fileAry = [];
+        _this.loadInterval = setInterval(function() {
+            if (_this.i < len) {
+                if (_this.fileList[_this.i]['type'] == 'img') {
+                    fileAry[_this.i] = new Image;
+                    fileAry[_this.i].onload = _this.loadPage(_this);
+                    fileAry[_this.i].src = _this.imgPath + "/" + _this.fileList[_this.i]['path'];
+                } else if (_this.fileList[_this.i]['type'] == 'voice') {
+                    fileAry[_this.i] = new Audio;
+                    fileAry[_this.i].onloadedmetadata = _this.loadPage(_this);
+                    fileAry[_this.i].src = _this.voicePath + "/" + _this.fileList[_this.i]['path'];
+                }
+                _this.i++;
+            } else {
+                clearInterval(_this.loadInterval);
+            }
+        }, 50);
+    },
+    loadPage: function(_this) {
+        var percent,
+            len = _this.fileList.length;
+        _this.fileCount++;
+        percent = Math.floor(100 * parseInt(_this.fileCount) / parseInt(len));
+        _this.options.loading && _this.options.loading(percent);
+        _this.fileCount == len && setTimeout(function() {
+            _this.options.complete && _this.options.complete();
+            clearInterval(_this.loadInterval);
+        }, 600);
+    }
+};
+
+function init(cb) {
+    $load_page.addClass('show');
+    var bg_music = new Audio;
+    bg_music.src='../../voice/bg.mp3';
+
+    bg_music.autoplay = true;
+    bg_music.loop = true;
+    bg_music.loadeddata=function(){
+        bg_music.play();
+    };
+    window.music = bg_music;
+
+    setTimeout(function() {
+        new PreLoading({
+            loading: function(percent) {
+                percent = Math.min(percent, 95);
+                var left = blood_left + blood_width * percent / 100;
+                $(".loading-current").width(percent + "%");
+                $load_person.css('left', left + "px");
+                $('#percent').html(percent);
+            },
+            complete: function() {
+                $load_page.addClass('hide').removeClass('show');
+                cb && cb();
+            }
+        });
+    }, 100);
+}
+
+module.exports = {
+    init: init
+};

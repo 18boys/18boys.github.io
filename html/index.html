@@ -9,22 +9,29 @@
 </head>
 <body>
     <div class="pageWrapper">
-        <div class="load">
+        <div class="load hide">
+            <img src="../img/load-bg.jpg" class="load">
             <img src="../img/load-process.png" class="process">
-            <div class="blood"></div>
-            <img src="../img/load-person.pnggit " class="person">
+            <div class="blood">
+                <div class="loading-current"></div>
+            </div>
+            <div class="percent">
+                <span id="percent">0</span>
+                <span class="sign">%</span>
+            </div>
+            <img src="../img/load-person.png " class="person">
         </div>
-        <div class="start" style="display: none">
-            <img src="../img/start_word.png" class="word animation-elastic">
-            <img src="../img/start_book1.png" class="book1 animation-rotate-out">
+        <div class="start hide">
+            <img src="../img/start_word.png" class="word">
+            <img src="../img/start_book1.png" class="book1">
             <img src="../img/start_book2.png" class="book2">
             <img src="../img/start_book3.png" class="book3">
             <img src="../img/start_person.png" class="person">
         </div>
-        <div class="start-select" style="display: none">
-                <div class="word" style="display: none"></div>
-                <div class="button-4-bg" style="display: none"></div>
-                <div class="button-6-bg" style="display: none"></div>
+        <div class="start-select hide">
+                <div class="word hide"></div>
+                <div class="js-button button-4-bg hide"></div>
+                <div class="js-button button-6-bg hide"></div>
         </div>
         <div class="exam hide">
             <img src="../img/exam-city.png" class="city">
@@ -52,6 +59,9 @@
             <img class="top-bg-2" src="../img/exam-top-bg-2.png">
             <img class="top-bg-3" src="../img/exam-top-bg-3.png">
             <img class="top-bg-4" src="../img/exam-top-bg-4.png">
+        </div>
+        <div class="share">
+            <div class="share-img"></div>
         </div>
     </div>
     <script type="text/javascript" src="../prd/scripts/index.js"></script>

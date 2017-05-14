@@ -1,4 +1,4 @@
-function init(){
+function init(cb) {
 
     var $start_page = $('.start');
     var $start_select = $('.start-select');
@@ -7,9 +7,10 @@ function init(){
     var $start_book2 = $start_page.find('.book2');
     var $start_book3 = $start_page.find('.book3');
     var $start_person = $start_page.find('.person');
-
-    $start_word.addClass('animation-elastic');
+    $start_page.css('display', 'block');
+    $start_word.css('display', 'block').addClass('animation-elastic');
     $start_book1.addClass('animation-rotate-out');
+
     setTimeout(function() {
         $start_word.removeClass('animation-elastic').addClass('elastic-out-down');
         setTimeout(function() {
@@ -33,7 +34,7 @@ function init(){
                         $start_select.css('display', 'block');
                         setTimeout(function() {
                             $start_page.css('display', 'none');
-                            $start_select.css('display', 'block');
+                            cb && cb();
                         }, 1000)
                     }, 300)
                 }, 300)
@@ -42,4 +43,4 @@ function init(){
     }, 600);
 }
 
-module.exports=init;
+module.exports = init;

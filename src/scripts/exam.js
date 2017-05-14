@@ -1362,7 +1362,7 @@ Exam.prototype = {
 
             _this.flag = $item.data('flag');
             _this.$submit.removeClass('hide');
-        
+
         // 点击确定
         }).on('click', '.exam .btn', function() {
             // 回答正确
@@ -1385,7 +1385,7 @@ Exam.prototype = {
             _this.$music.attr('src', '../img/exam-music-on.png');
 
             // 播放音乐
-        
+
         // 点击文字解析
         }).on('click', '.exam .explain', function() {
             console.log('文字解析');

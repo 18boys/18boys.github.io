@@ -52,7 +52,7 @@ loadPage.init(
 function initAudio(){
     var audio = document.getElementById('bg-music');
     audio.play();
-    document.addEventListener("WeixinJSBridgeReady", function () {
+    document.addEventListener('WeixinJSBridgeReady', function () {
         audio.play();
     }, false);
 }

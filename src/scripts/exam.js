@@ -1370,42 +1370,47 @@ Exam.prototype = {
         this.$board.html(this.template.render(this.questionList[index]));
     },
     _bindEvent: function() {
-        var _this = this;
+        var _this = this,
+            index,
+            flag;
 
         // 点击选项
         $(document).on('click', '.exam .answer .item', function(e) {
             // 防止出现下一题的时候又出现确定按钮
             if (_this.$nextWrapper.hasClass('hide')) {
                 var $item = $(this);
-
+                
+                index = $item.index();
                 $('.exam .item').removeClass('on');
                 $item.addClass('on');
-                _this.flag = $item.data('flag');
+                flag = $item.data('flag');
                 _this.$submit.removeClass('hide');
             }
         
         // 点击确定
         }).on('click', '.exam .btn', function() {
+            _this.$submit.addClass('hide');
+
             // 回答正确
-            if (_this.flag) {
-                _this.questionList[_this.index].answer.forEach(function(item, i) {
-                    if (item.flag) {
-                        _this.$container.find('.item').eq(i).removeClass('on').addClass('success');
-                    }
-                });
+            if (flag) {
                 _this.$happyPerson.removeClass('hide');
                 _this._renderBlood(true);
                 _this.$successNumber.removeClass('hide');
+                nextHandler();
             } else {
+                // 错误的显示灰色，正确的打钩
+                $('.exam .item').eq(index).removeClass('on').addClass('fail');
+                _this.questionList[_this.index].answer.forEach(function(item, itemIndex) {
+                    if (item.flag) {
+                        $('.exam .item').eq(itemIndex).addClass('success');
+                    }
+                });
                 _this.$city.removeClass('hide');
                 _this.$unhappyPerson.removeClass('hide');
                 _this._renderBlood(false);
                 _this.$failNumber.removeClass('hide');
+                _this.$nextWrapper.removeClass('hide');
             }
-
-            _this.$board.addClass('on');
-            _this.$submit.addClass('hide');
-            _this.$nextWrapper.removeClass('hide');
 
         // 点击答案解析
         }).on('click', '.exam .music', function() {
@@ -1422,7 +1427,13 @@ Exam.prototype = {
             _this._renderExplain(_this.questionList[_this.index]);
 
         // 点击下一题
-        }).on('click', '.exam .next', function() {
+        }).on('click', '.exam .next', nextHandler)
+        // 点击关闭文字解析
+        .on('click', '.exam .close', function() {
+            _this.$explainLayout.addClass('hide');
+        });
+
+        function nextHandler() {
             // 关掉音乐
             if (_this.playFlag) {
                 _this.playFlag = false;
@@ -1437,11 +1448,7 @@ Exam.prototype = {
 
             _this._reset();
             _this.render(_this.index + 1);
-
-        // 点击关闭文字解析
-        }).on('click', '.exam .close', function() {
-            _this.$explainLayout.addClass('hide');
-        });
+        }
     },
     _reset: function() {
         this.$happyPerson.addClass('hide');

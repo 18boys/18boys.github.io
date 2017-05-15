@@ -36,34 +36,6 @@ Page.prototype = {
             '-webkit-transform': 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')',
             transform: 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')'
         });
-    }
-};
-
-new Page();
-
-loadPage.init(
-    function() {
-        initStart(function() {
-            initSelectPage(function() {
-                    var examer = new exam.Exam({
-                        finishHandler: function() {
-                            new Result(examer.score);
-                        }
-                    });
-                }
-            );
-        });
-    }
-);
-
-
-function initAudio(){
-    var audio = document.getElementById('bg-music');
-    audio.play();
-    document.addEventListener('WeixinJSBridgeReady', function () {
-        audio.play();
-    }, false);
-}
     },
     _run: function(){
         loadPage.init(
@@ -72,7 +44,8 @@ function initAudio(){
                     initSelectPage(function() {
                             var examer = new exam.Exam({
                                 finishHandler: function() {
-                                    new Result(examer.score);
+                                    //new Result(examer.score);
+                                    new Result(500);
                                 }
                             });
                         }

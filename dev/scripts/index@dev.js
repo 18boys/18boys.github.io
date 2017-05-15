@@ -1960,7 +1960,7 @@ if (typeof module !== "undefined") module.exports = window.QTMPL["exam"];
 
 ;(function(__context){
     var module = {
-        id : "e98514c35b1c4030c76b5145d9e1e6a0" ,
+        id : "41b4d02e94106c8257a4153fb128cdc9" ,
         filename : "exam.js" ,
         exports : {}
     };
@@ -3277,10 +3277,6 @@ var questionArr = [
     ],
     finalQuestionArr = utils.getRandomList(questionArr, 10);
 
-// 测试数据
-var test = 0;
-var test_score = 599;
-
 var voiceSourceList = finalQuestionArr.map(function(item) {
     return '/voice/' + item.question + '.mp3';
 });
@@ -3339,7 +3335,9 @@ Exam.prototype = {
         this.$board.html(this.template.render(this.questionList[index]));
     },
     _bindEvent: function() {
-        var _this = this;
+        var _this = this,
+            index,
+            flag;
 
         // 点击选项
         $(document).on('click', '.exam .answer .item', function(e) {
@@ -3347,34 +3345,37 @@ Exam.prototype = {
             if (_this.$nextWrapper.hasClass('hide')) {
                 var $item = $(this);
 
+                index = $item.index();
                 $('.exam .item').removeClass('on');
                 $item.addClass('on');
-                _this.flag = $item.data('flag');
+                flag = $item.data('flag');
                 _this.$submit.removeClass('hide');
             }
         
         // 点击确定
         }).on('click', '.exam .btn', function() {
+            _this.$submit.addClass('hide');
+
             // 回答正确
-            if (_this.flag) {
-                _this.questionList[_this.index].answer.forEach(function(item, i) {
-                    if (item.flag) {
-                        _this.$container.find('.item').eq(i).removeClass('on').addClass('success');
-                    }
-                });
+            if (flag) {
                 _this.$happyPerson.removeClass('hide');
                 _this._renderBlood(true);
                 _this.$successNumber.removeClass('hide');
+                nextHandler();
             } else {
+                // 错误的显示灰色，正确的打钩
+                $('.exam .item').eq(index).removeClass('on').addClass('fail');
+                _this.questionList[_this.index].answer.forEach(function(item, itemIndex) {
+                    if (item.flag) {
+                        $('.exam .item').eq(itemIndex).addClass('success');
+                    }
+                });
                 _this.$city.removeClass('hide');
                 _this.$unhappyPerson.removeClass('hide');
                 _this._renderBlood(false);
                 _this.$failNumber.removeClass('hide');
+                _this.$nextWrapper.removeClass('hide');
             }
-
-            _this.$board.addClass('on');
-            _this.$submit.addClass('hide');
-            _this.$nextWrapper.removeClass('hide');
 
         // 点击答案解析
         }).on('click', '.exam .music', function() {
@@ -3382,7 +3383,6 @@ Exam.prototype = {
 
             // 播放音乐
             _this.soundVoice.src = path + voiceSourceList[_this.index];
-            //bgMusic.volume= 0.3;
             if(userPlay){
                 bgMusic.pause();
             }
@@ -3395,11 +3395,17 @@ Exam.prototype = {
             _this._renderExplain(_this.questionList[_this.index]);
 
         // 点击下一题
-        }).on('click', '.exam .next', function() {
-            //bgMusic.volume= 1;
+        }).on('click', '.exam .next', nextHandler)
+        // 点击关闭文字解析
+        .on('click', '.exam .close', function() {
+            _this.$explainLayout.addClass('hide');
+        });
+
+        function nextHandler() {
             if(userPlay){
                 bgMusic.play();
             }
+
             // 关掉音乐
             if (_this.playFlag) {
                 _this.playFlag = false;
@@ -3407,18 +3413,14 @@ Exam.prototype = {
             }
 
             // 全部回答完毕
-            if (_this.index + 1 === 10) {
+            if (_this.index + 1 === 10 || true) {
                 _this.$container.addClass('hide');
                 return _this.params.finishHandler();
             }
 
             _this._reset();
             _this.render(_this.index + 1);
-
-        // 点击关闭文字解析
-        }).on('click', '.exam .close', function() {
-            _this.$explainLayout.addClass('hide');
-        });
+        }
     },
     _reset: function() {
         this.$happyPerson.addClass('hide');
@@ -3467,7 +3469,7 @@ module.exports = {
 };
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "e98514c35b1c4030c76b5145d9e1e6a0" ] = module.exports;
+    __context.____MODULES[ "41b4d02e94106c8257a4153fb128cdc9" ] = module.exports;
 })(this);
 
 
@@ -3552,7 +3554,7 @@ module.exports = Result;
 
 ;(function(__context){
     var module = {
-        id : "d0eeb37caee26e33aa8e74a87d24cec1" ,
+        id : "242a9d62a458a20c07cb00e38b353811" ,
         filename : "index.js" ,
         exports : {}
     };
@@ -3565,7 +3567,7 @@ var FastClick =__context.____MODULES['624b017aec859a48d3c98140b61779f3'];
 var loadPage =__context.____MODULES['6ecb60068526f6a95f7bf217f4345ee2'];
 var initSelectPage =__context.____MODULES['4beb89d4b1517fbe8ff53fa47aa8302f'];
 var initStart =__context.____MODULES['f42f6db5e3be3a9414fa3afa66bc4f86'];
-var exam =__context.____MODULES['e98514c35b1c4030c76b5145d9e1e6a0'];
+var exam =__context.____MODULES['41b4d02e94106c8257a4153fb128cdc9'];
 var Result =__context.____MODULES['23a5a77a5fdde4896f7f3801d8894847'];
 
 FastClick(document.body);
@@ -3583,8 +3585,8 @@ var Page = function() {
 };
 
 window.bgMusic=new Audio;
+bgMusic.loop=true;
 window.userPlay=false;  // false标示用户不让播放背景音乐
-window.noUserPlay=false; // false标示程序不让播放背景音乐
 
 Page.prototype = {
     init: function() {
@@ -3605,7 +3607,8 @@ Page.prototype = {
                     initSelectPage(function() {
                             var examer = new exam.Exam({
                                 finishHandler: function() {
-                                    new Result(examer.score);
+                                    //new Result(examer.score);
+                                    new Result(500);
                                 }
                             });
                         }
@@ -3615,11 +3618,6 @@ Page.prototype = {
         );
     },
     _initAudio: function(){
-        //var audio = document.getElementById('bg-music');
-        //audio.play();
-        //document.addEventListener("WeixinJSBridgeReady", function () {
-        //    audio.play();
-        //}, false);
         var _this=this;
         bgMusic.src='/voice/bg.mp3';
         $(document).on('click','.music-bg',function(){
@@ -3627,13 +3625,11 @@ Page.prototype = {
                 $(this).addClass('hide');
                 _this.$music_bg_close.removeClass('hide');
                 bgMusic.pause();
-                //noUserPlay=false;
                 userPlay=false;
             }else {
                 $(this).addClass('hide');
                 _this.$music_bg_open.removeClass('hide');
                 bgMusic.play();
-                //noUserPlay=false;
                 userPlay=true;
             }
         })
@@ -3645,5 +3641,5 @@ new Page();
 
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "d0eeb37caee26e33aa8e74a87d24cec1" ] = module.exports;
+    __context.____MODULES[ "242a9d62a458a20c07cb00e38b353811" ] = module.exports;
 })(this);

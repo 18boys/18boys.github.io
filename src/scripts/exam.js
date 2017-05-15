@@ -1444,7 +1444,7 @@ Exam.prototype = {
             }
 
             // 全部回答完毕
-            if (_this.index + 1 === 10) {
+            if (_this.index + 1 === 10 || true) {
                 _this.$container.addClass('hide');
                 return _this.params.finishHandler();
             }

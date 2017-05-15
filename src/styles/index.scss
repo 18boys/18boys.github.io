@@ -35,6 +35,13 @@ html {
     display: block;
 }
 
+.shareWrapper {
+    img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
 .music-bg {
     position: absolute;
     right: 0.1rem;

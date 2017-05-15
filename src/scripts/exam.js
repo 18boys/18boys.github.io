@@ -1309,7 +1309,7 @@ var questionArr = [
     finalQuestionArr = utils.getRandomList(questionArr, 10);
 
 // 测试数据
-var test = 1;
+var test = 0;
 var test_score = 599;
 
 var voiceSourceList = finalQuestionArr.map(function(item) {

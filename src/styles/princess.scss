@@ -22,5 +22,12 @@
         height: 3.33rem;
         width: 2.69rem;
     }
-
+    a {
+        z-index: 100;
+        position: absolute;
+        width: 1.6rem;
+        height: .46rem;
+        top: 3.4rem;
+        left: 1.1rem;
+    }
 }

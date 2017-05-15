@@ -50,12 +50,10 @@ loadPage.init(
 
 
 function initAudio(){
-    //var bg_music = new Audio;
-    //bg_music.src='../../voice/bg.mp3';
-    //bg_music.autoplay = true;
-    //bg_music.loop = true;
-    //bg_music.id = 'bbbbg';
-    //bg_music.play();
-    //window.music = bg_music;
+    var audio = document.getElementById('bg-music');
+    audio.play();
+    document.addEventListener("WeixinJSBridgeReady", function () {
+        audio.play();
+    }, false);
 }
 

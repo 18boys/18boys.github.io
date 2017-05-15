@@ -8,6 +8,8 @@ var Result = require('./result');
 
 FastClick(document.body);
 
+var voiceList=exam.voiceSourceList||[];
+
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,
     originWidth = 375,
@@ -43,15 +45,13 @@ Page.prototype = {
                     initSelectPage(function() {
                             var examer = new exam.Exam({
                                 finishHandler: function() {
-                                    //new Result(examer.score);
-                                    new Result(500);
-                                }
+                                    new Result(examer.score);
                             });
                         }
                     );
                 });
             }
-        );
+        ,voiceList);
     },
     _initAudio: function(){
         var _this=this;

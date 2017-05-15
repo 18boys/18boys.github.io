@@ -18,7 +18,7 @@ var PreLoading = function(options) {
     // 题目语音路径
     this.voicePath = '/voice';
     // 页面imglist集合
-    this.fileList = fileList;
+    this.fileList = fileList.concat(options.voiceList||[]);
     // 使用配置参数
     this.options = options;
     this.makeLoadPage();
@@ -34,14 +34,16 @@ PreLoading.prototype = {
             fileAry = [];
         _this.loadInterval = setInterval(function() {
             if (_this.i < len) {
-                if (_this.fileList[_this.i]['type'] == 'img') {
-                    fileAry[_this.i] = new Image();
-                    fileAry[_this.i].onload = _this.loadPage(_this);
-                    fileAry[_this.i].src = _this.imgPath + '/' + _this.fileList[_this.i]['path'];
-                } else if (_this.fileList[_this.i]['type'] == 'voice') {
+                if (_this.fileList[_this.i].search(/mp3/)) {
                     fileAry[_this.i] = new Audio();
                     fileAry[_this.i].onloadedmetadata = _this.loadPage(_this);
-                    fileAry[_this.i].src = _this.voicePath + '/' + _this.fileList[_this.i]['path'];
+                    fileAry[_this.i].src =  _this.fileList[_this.i];
+
+                //} else if (_this.fileList[_this.i]['type'] == 'voice') {
+                } else {
+                    fileAry[_this.i] = new Image();
+                    fileAry[_this.i].onload = _this.loadPage(_this);
+                    fileAry[_this.i].src = _this.fileList[_this.i];
                 }
                 _this.i++;
             } else {
@@ -62,7 +64,7 @@ PreLoading.prototype = {
     }
 };
 
-function init(cb) {
+function init(cb,voiceList) {
     $load_page.addClass('show');
     setTimeout(function() {
         new PreLoading({
@@ -76,7 +78,8 @@ function init(cb) {
             complete: function() {
                 $load_page.addClass('hide').removeClass('show');
                 cb && cb();
-            }
+            },
+            voiceList:voiceList
         });
     }, 100);
 }

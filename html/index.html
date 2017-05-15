@@ -93,11 +93,9 @@
                 <a href="https://ke.youdao.com/course/detail/2879?vendor=h5_cof_cet"></a>
             </div>
         </div>
-
     </div>
     <script src="//shared.ydstatic.com/js/zepto/1.1.6.js"></script>
     <script src="//shared.ydstatic.com/js/ydk/ydk-1.4.4-min.js"></script>
-    <script src="//shared.ydstatic.com/js/rlog/v1.js"></script>
     <script type="text/javascript" src="../prd/scripts/index.js"></script>
     <script>
         var _rlog = _rlog || [];
@@ -113,10 +111,15 @@
             desc: '勇士来！闯关自测考试成绩，我就不信有人能见到公主',
             imgUrl: 'http://' + location.host + '/img/share.jpg',
             link: location.href,
+            shift: true,
             success: function() {
-                alert('success');
+                _rlog.push(["_addPost" , "vendor" , "fromshare"]);
+                _rlog.push(["_trackEvent" , "sharesuccessful"]);
+                $('.princess').removeClass('hide').attr('display', 'block');
+
             }
         })
     </script>
+    <script src="//shared.ydstatic.com/js/rlog/v1.js"></script>
 </body>
 </html>

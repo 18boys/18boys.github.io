@@ -1308,6 +1308,15 @@ a {
   width: 2.69rem;
 }
 
+.princess a {
+  z-index: 100;
+  position: absolute;
+  width: 1.6rem;
+  height: .46rem;
+  top: 3.4rem;
+  left: 1.1rem;
+}
+
 @font-face {
   font-family: 'Chalkduster';
   src: url("../../font/Chalkduster.ttf");

@@ -12,6 +12,9 @@ var Result = function(score) {
 };
 Result.prototype = {
     init: function() {
+
+        var _rlog = _rlog || [];
+        _rlog.push(["_trackEvent" ,  "resultsuccessful"]);
         this.$container.removeClass('hide');
         this._bindEvent();
         this.render(this.score);
@@ -48,13 +51,11 @@ Result.prototype = {
 
         var _this = this;
         $(document).on('click', '.result .jump', function() {
-            _this.$princess.removeClass('hide').attr('display', 'block');
-            _this._initDialog();
+            location.href="https://ke.youdao.com/course/detail/2879?vendor=h5_cof_cet";
         }).on('click', '.result .show', function() {
             var src = _this.score >= 696 ? '/img/share-word-1.png' : '/img/share-word-2.png';
             _this.$share_word.attr('src', src);
             _this.$share.removeClass('hide').attr('display', 'block');
-            _this._initDialog();
         });
 
     }

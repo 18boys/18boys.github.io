@@ -1422,17 +1422,18 @@ Exam.prototype = {
 
         // 点击下一题
         }).on('click', '.exam .next', function() {
-            // 全部回答完毕
-            if (_this.index + 1 === 10) {
-                _this.$container.addClass('hide');
-                return _this.params.finishHandler();
-            }
-
             // 关掉音乐
             if (_this.playFlag) {
                 _this.playFlag = false;
                 _this.soundVoice.pause();
             }
+            
+            // 全部回答完毕
+            if (_this.index + 1 === 10) {
+                _this.$container.addClass('hide');
+                return _this.params.finishHandler();
+            }
+            
             _this._reset();
             _this.render(_this.index + 1);
 

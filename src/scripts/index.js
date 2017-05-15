@@ -8,6 +8,7 @@ var exam = require('./exam');
 var Result = require('./result');
 
 FastClick(document.body);
+initAudio();
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,
@@ -46,4 +47,15 @@ loadPage.init(
         });
     }
 );
+
+
+function initAudio(){
+    //var bg_music = new Audio;
+    //bg_music.src='../../voice/bg.mp3';
+    //bg_music.autoplay = true;
+    //bg_music.loop = true;
+    //bg_music.id = 'bbbbg';
+    //bg_music.play();
+    //window.music = bg_music;
+}
 

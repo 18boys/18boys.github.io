@@ -8,8 +8,8 @@ var Result = function(score) {
     this.$jump = this.$container.find('.jump');
     this.$show = this.$container.find('.show');
     this.$share = $('.share');
-    this.$share_word = this.$share.find('');
-    this.$princess =$('.princess');
+    this.$share_word = this.$share.find('.share-word');
+    this.$princess = $('.princess');
     this.init(score);
 };
 Result.prototype = {
@@ -17,6 +17,11 @@ Result.prototype = {
         this.$container.removeClass('hide');
         this._bindEvent();
         this.render(this.score);
+    },
+    _initDialog: function() {
+        $(document).on('click', '.result .js-dialog', function() {
+            $(this).addClass('hide');
+        })
     },
     render: function() {
         var score = this.score,
@@ -42,14 +47,17 @@ Result.prototype = {
     },
     _bindEvent: function() {
 
-        var  _this=this;
+        var _this = this;
         $(document).on('click', '.result .jump', function() {
-            _this.$princess.removeClass('hide').addClass('show');
+            _this.$princess.removeClass('hide').attr('display', 'block');
+            _this._initDialog();
         }).on('click', '.result .show', function() {
-            var src=_this.score >= 696? '/img/share-word-1.png':'/img/share-word-2.png';
-            _this.$share_word.attr('src',src);
-            _this.$share.removeClass('hide').addClass('show');
+            var src = _this.score >= 696 ? '/img/share-word-1.png' : '/img/share-word-2.png';
+            _this.$share_word.attr('src', src);
+            _this.$share.removeClass('hide').attr('display', 'block');
+            _this._initDialog();
         });
+
     }
 };
 

@@ -65,16 +65,6 @@ PreLoading.prototype = {
 
 function init(cb) {
     $load_page.addClass('show');
-    var bg_music = new Audio();
-    bg_music.src='../../voice/bg.mp3';
-
-    bg_music.autoplay = true;
-    bg_music.loop = true;
-    bg_music.loadeddata=function(){
-        bg_music.play();
-    };
-    window.music = bg_music;
-
     setTimeout(function() {
         new PreLoading({
             loading: function(percent) {

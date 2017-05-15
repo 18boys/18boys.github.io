@@ -1308,8 +1308,9 @@ var questionArr = [
     ],
     finalQuestionArr = utils.getRandomList(questionArr, 10);
 
-
+// 测试数据
 var test = 1;
+var test_score = 599;
 
 var voiceSourceList = finalQuestionArr.map(function(item) {
     return '/voice/' + item.question + '.mp3';
@@ -1423,7 +1424,10 @@ Exam.prototype = {
         // 点击下一题
         }).on('click', '.exam .next', function() {
             // 全部回答完毕
-            if (_this.index + 1 === 10) {
+            if (_this.index + 1 === 10 ||test) {
+                if(test){
+                    this.score = test_score;
+                }
                 _this.$container.addClass('hide');
                 return _this.params.finishHandler();
             }

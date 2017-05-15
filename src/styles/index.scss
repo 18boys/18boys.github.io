@@ -1,4 +1,5 @@
 @import "./libs/yo/usage/core/reset";
+@import "./libs/Yo/lib/ani/rotate";
 @import "./load.scss";
 @import "./start.scss";
 @import "./start-select.scss";
@@ -8,8 +9,8 @@
 @import "./princess.scss";
 
 @font-face {
-    font-family:'Chalkduster';
-    src:url('../../font/Chalkduster.ttf');
+    font-family: 'Chalkduster';
+    src: url('../../font/Chalkduster.ttf');
 }
 
 html {
@@ -32,4 +33,16 @@ html {
 
 .show {
     display: block;
+}
+
+.music-bg {
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.music-bg-open {
+    @include animation(rotate 2s linear infinite);
 }

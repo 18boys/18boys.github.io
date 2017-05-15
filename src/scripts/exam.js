@@ -1308,10 +1308,6 @@ var questionArr = [
     ],
     finalQuestionArr = utils.getRandomList(questionArr, 10);
 
-// 测试数据
-var test = 0;
-var test_score = 599;
-
 var voiceSourceList = finalQuestionArr.map(function(item) {
     return '/voice/' + item.question + '.mp3';
 });
@@ -1413,6 +1409,9 @@ Exam.prototype = {
 
             // 播放音乐
             _this.soundVoice.src = path + voiceSourceList[_this.index];
+            if(userPlay){
+                bgMusic.pause();
+            }
             _this.soundVoice.play();
             _this.playFlag = true;
 
@@ -1423,6 +1422,9 @@ Exam.prototype = {
 
         // 点击下一题
         }).on('click', '.exam .next', function() {
+            if(userPlay){
+                bgMusic.play();
+            }
             // 关掉音乐
             if (_this.playFlag) {
                 _this.playFlag = false;

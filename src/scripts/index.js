@@ -8,7 +8,6 @@ var exam = require('./exam');
 var Result = require('./result');
 
 FastClick(document.body);
-initAudio();
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,
@@ -17,43 +16,61 @@ var screenWidth = document.body.clientWidth,
 
 var Page = function() {
     this.$body = $('.pageWrapper');
+    this.$music_bg_close = $('.music-bg-close');
+    this.$music_bg_open = $('.music-bg-open');
     this.init();
 };
+
+window.bgMusic=new Audio;
+bgMusic.loop=true;
+window.userPlay=false;  // false标示用户不让播放背景音乐
+
 Page.prototype = {
     init: function() {
+        this._initAudio();
         this._reset();
+        this._run();
     },
     _reset: function() {
         this.$body.css({
             '-webkit-transform': 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')',
             transform: 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')'
         });
+    },
+    _run: function(){
+        loadPage.init(
+            function() {
+                initStart(function() {
+                    initSelectPage(function() {
+                            var examer = new exam.Exam({
+                                finishHandler: function() {
+                                    new Result(examer.score);
+                                }
+                            });
+                        }
+                    );
+                });
+            }
+        );
+    },
+    _initAudio: function(){
+        var _this=this;
+        bgMusic.src='/voice/bg.mp3';
+        $(document).on('click','.music-bg',function(){
+            if($(this).hasClass('music-bg-open')){
+                $(this).addClass('hide');
+                _this.$music_bg_close.removeClass('hide');
+                bgMusic.pause();
+                userPlay=false;
+            }else {
+                $(this).addClass('hide');
+                _this.$music_bg_open.removeClass('hide');
+                bgMusic.play();
+                userPlay=true;
+            }
+        })
     }
 };
 
 new Page();
-
-loadPage.init(
-    function() {
-        initStart(function() {
-            initSelectPage(function() {
-                    var examer = new exam.Exam({
-                        finishHandler: function() {
-                            new Result(examer.score);
-                        }
-                    });
-                }
-            );
-        });
-    }
-);
-
-
-function initAudio(){
-    var audio = document.getElementById('bg-music');
-    audio.play();
-    document.addEventListener("WeixinJSBridgeReady", function () {
-        audio.play();
-    }, false);
-}
 

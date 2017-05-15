@@ -1029,7 +1029,7 @@ module.exports = {
 
 ;(function(__context){
     var module = {
-        id : "030a279f3e5346fbb128262167f930ce" ,
+        id : "4beb89d4b1517fbe8ff53fa47aa8302f" ,
         filename : "start-select.js" ,
         exports : {}
     };
@@ -1049,7 +1049,7 @@ function init(cb) {
         $start_button_4.removeClass('hide').addClass('animation-button-in');
         $start_button_6.removeClass('hide').addClass('animation-button-in');
         _initEvent(cb);
-    }, 4000);
+    }, 2000);
 }
 
 function _initEvent(cb) {
@@ -1062,7 +1062,7 @@ function _initEvent(cb) {
 module.exports = init;
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "030a279f3e5346fbb128262167f930ce" ] = module.exports;
+    __context.____MODULES[ "4beb89d4b1517fbe8ff53fa47aa8302f" ] = module.exports;
 })(this);
 
 
@@ -1960,7 +1960,7 @@ if (typeof module !== "undefined") module.exports = window.QTMPL["exam"];
 
 ;(function(__context){
     var module = {
-        id : "19e16b670fa165cf5a1e9289f86c0019" ,
+        id : "e98514c35b1c4030c76b5145d9e1e6a0" ,
         filename : "exam.js" ,
         exports : {}
     };
@@ -3382,6 +3382,10 @@ Exam.prototype = {
 
             // 播放音乐
             _this.soundVoice.src = path + voiceSourceList[_this.index];
+            //bgMusic.volume= 0.3;
+            if(userPlay){
+                bgMusic.pause();
+            }
             _this.soundVoice.play();
             _this.playFlag = true;
 
@@ -3392,14 +3396,22 @@ Exam.prototype = {
 
         // 点击下一题
         }).on('click', '.exam .next', function() {
+            //bgMusic.volume= 1;
+            if(userPlay){
+                bgMusic.play();
+            }
+            // 关掉音乐
+            if (_this.playFlag) {
+                _this.playFlag = false;
+                _this.soundVoice.pause();
+            }
+
             // 全部回答完毕
-            if (_this.index + 1 === 10 ||test) {
-                if(test){
-                    this.score = test_score;
-                }
+            if (_this.index + 1 === 10) {
                 _this.$container.addClass('hide');
                 return _this.params.finishHandler();
             }
+
             _this._reset();
             _this.render(_this.index + 1);
 
@@ -3418,11 +3430,6 @@ Exam.prototype = {
         this.$city.addClass('hide');
         this.$successNumber.addClass('hide');
         this.$failNumber.addClass('hide');
-
-        if (this.playFlag) {
-            this.playFlag = false;
-            this.soundVoice.pause();
-        }
     },
     _renderExplain(data) {
         var htmlStr = '' +
@@ -3460,7 +3467,7 @@ module.exports = {
 };
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "19e16b670fa165cf5a1e9289f86c0019" ] = module.exports;
+    __context.____MODULES[ "e98514c35b1c4030c76b5145d9e1e6a0" ] = module.exports;
 })(this);
 
 
@@ -3545,7 +3552,7 @@ module.exports = Result;
 
 ;(function(__context){
     var module = {
-        id : "e0116646bcb4d98c5daf50afd79f1434" ,
+        id : "d0eeb37caee26e33aa8e74a87d24cec1" ,
         filename : "index.js" ,
         exports : {}
     };
@@ -3556,13 +3563,12 @@ module.exports = Result;
 __context.____MODULES['50a4556b0089cfa1cb61e88ea23bbcce'];
 var FastClick =__context.____MODULES['624b017aec859a48d3c98140b61779f3'];
 var loadPage =__context.____MODULES['6ecb60068526f6a95f7bf217f4345ee2'];
-var initSelectPage =__context.____MODULES['030a279f3e5346fbb128262167f930ce'];
+var initSelectPage =__context.____MODULES['4beb89d4b1517fbe8ff53fa47aa8302f'];
 var initStart =__context.____MODULES['f42f6db5e3be3a9414fa3afa66bc4f86'];
-var exam =__context.____MODULES['19e16b670fa165cf5a1e9289f86c0019'];
+var exam =__context.____MODULES['e98514c35b1c4030c76b5145d9e1e6a0'];
 var Result =__context.____MODULES['23a5a77a5fdde4896f7f3801d8894847'];
 
 FastClick(document.body);
-initAudio();
 
 var screenWidth = document.body.clientWidth,
     screenHeight = document.body.clientHeight,
@@ -3571,48 +3577,73 @@ var screenWidth = document.body.clientWidth,
 
 var Page = function() {
     this.$body = $('.pageWrapper');
+    this.$music_bg_close = $('.music-bg-close');
+    this.$music_bg_open = $('.music-bg-open');
     this.init();
 };
+
+window.bgMusic=new Audio;
+window.userPlay=false;  // false标示用户不让播放背景音乐
+window.noUserPlay=false; // false标示程序不让播放背景音乐
+
 Page.prototype = {
     init: function() {
+        this._initAudio();
         this._reset();
+        this._run();
     },
     _reset: function() {
         this.$body.css({
             '-webkit-transform': 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')',
             transform: 'scaleX(' + screenWidth / originWidth + ') scaleY(' + screenHeight / originHeight + ')'
         });
+    },
+    _run: function(){
+        loadPage.init(
+            function() {
+                initStart(function() {
+                    initSelectPage(function() {
+                            var examer = new exam.Exam({
+                                finishHandler: function() {
+                                    new Result(examer.score);
+                                }
+                            });
+                        }
+                    );
+                });
+            }
+        );
+    },
+    _initAudio: function(){
+        //var audio = document.getElementById('bg-music');
+        //audio.play();
+        //document.addEventListener("WeixinJSBridgeReady", function () {
+        //    audio.play();
+        //}, false);
+        var _this=this;
+        bgMusic.src='/voice/bg.mp3';
+        $(document).on('click','.music-bg',function(){
+            if($(this).hasClass('music-bg-open')){
+                $(this).addClass('hide');
+                _this.$music_bg_close.removeClass('hide');
+                bgMusic.pause();
+                //noUserPlay=false;
+                userPlay=false;
+            }else {
+                $(this).addClass('hide');
+                _this.$music_bg_open.removeClass('hide');
+                bgMusic.play();
+                //noUserPlay=false;
+                userPlay=true;
+            }
+        })
     }
 };
 
 new Page();
 
-loadPage.init(
-    function() {
-        initStart(function() {
-            initSelectPage(function() {
-                    var examer = new exam.Exam({
-                        finishHandler: function() {
-                            new Result(examer.score);
-                        }
-                    });
-                }
-            );
-        });
-    }
-);
-
-
-function initAudio(){
-    var audio = document.getElementById('bg-music');
-    audio.play();
-    document.addEventListener("WeixinJSBridgeReady", function () {
-        audio.play();
-    }, false);
-}
-
 
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "e0116646bcb4d98c5daf50afd79f1434" ] = module.exports;
+    __context.____MODULES[ "d0eeb37caee26e33aa8e74a87d24cec1" ] = module.exports;
 })(this);

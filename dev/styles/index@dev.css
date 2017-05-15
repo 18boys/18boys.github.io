@@ -246,6 +246,29 @@ a {
   animation-iteration-count: infinite;
 }
 
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotatez(0);
+  }
+  to {
+    -webkit-transform: rotatez(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotatez(0);
+  }
+  to {
+    transform: rotatez(360deg);
+  }
+}
+
+.ani.rotate {
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+}
+
 @-webkit-keyframes zoom-in {
   0% {
     opacity: 0;
@@ -672,11 +695,11 @@ a {
 }
 
 .start-select .animation-word-in {
-  animation: word-in 4s linear 1;
+  animation: word-in 2s linear 1;
 }
 
 .start-select .animation-button-in {
-  animation: button-in 1s  linear 1;
+  animation: button-in 0.5s  linear 1;
 }
 
 .start-select .button-4, .start-select .button-4-bg {
@@ -1314,4 +1337,17 @@ html {
 
 .show {
   display: block;
+}
+
+.music-bg {
+  position: absolute;
+  right: 0.1rem;
+  top: 0.1rem;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.music-bg-open {
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
 }

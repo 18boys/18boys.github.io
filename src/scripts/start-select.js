@@ -11,7 +11,7 @@ function init(cb) {
         $start_button_4.removeClass('hide').addClass('animation-button-in');
         $start_button_6.removeClass('hide').addClass('animation-button-in');
         _initEvent(cb);
-    }, 4000);
+    }, 2000);
 }
 
 function _initEvent(cb) {

@@ -2,7 +2,6 @@
  * 选择四六级选项页面
  */
 
-require('libs/zepto.min.js');
 var fileList = require('./config/fileList');
 
 var $load_page = $('.load');

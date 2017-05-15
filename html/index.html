@@ -94,26 +94,28 @@
         </div>
 
     </div>
-    <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="//shared.ydstatic.com/js/zepto/1.1.6.js"></script>
+    <script src="//shared.ydstatic.com/js/ydk/ydk-1.4.4-min.js"></script>
     <script src="//shared.ydstatic.com/js/rlog/v1.js"></script>
     <script type="text/javascript" src="../prd/scripts/index.js"></script>
     <script>
         var _rlog = _rlog || [];
         _rlog.push(["_setAccount" , "course_market"]);
-
-        wx.config({
-            debug: false
+        
+        ydk.config({
+            debug: false,
+            jsApiList: ['checkJsApi', 'share']
         });
-        wx.ready(function() {
-            wx.onMenuShareTimeline({
-                success: function() {
-                    alert('success');
-                },
-                cancel: function() {
-                    alert('cancel');
-                }
-            });
-        });
+        ydk.share({
+            type: 'wechat',
+            title: '【有道考神】这是一个超厉害的四六级成绩预测',
+            desc: '勇士来！闯关自测考试成绩，我就不信有人能见到公主',
+            imgUrl: 'http://' + location.host + '/img/share.jpg',
+            link: location.href,
+            success: function() {
+                alert('success');
+            }
+        })
     </script>
 </body>
 </html>

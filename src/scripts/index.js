@@ -1,5 +1,4 @@
 /*[export]*/
-require('libs/zepto.min.js');
 var FastClick = require('libs/fastclick');
 var loadPage = require('./load');
 var initSelectPage = require('./start-select');
@@ -57,7 +56,7 @@ Page.prototype = {
     _initAudio: function(){
         var _this=this;
         bgMusic.src='/voice/bg.mp3';
-        $(document).on('click','.music-bg',function(){
+        $(document).on('click', '.music-bg', function(){
             if($(this).hasClass('music-bg-open')){
                 $(this).addClass('hide');
                 _this.$music_bg_close.removeClass('hide');
@@ -69,7 +68,7 @@ Page.prototype = {
                 bgMusic.play();
                 userPlay=true;
             }
-        })
+        });
     }
 };
 

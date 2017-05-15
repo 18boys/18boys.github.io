@@ -1,4 +1,3 @@
-require('libs/zepto.min.js');
 var hogan = require('libs/hogan'),
     utils = require('./utils'),
     tpl = require('./tpl/exam.string');

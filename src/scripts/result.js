@@ -1,5 +1,3 @@
-require('libs/zepto.min.js');
-
 var Result = function(score) {
     this.score = score;
     this.$container = $('.result');

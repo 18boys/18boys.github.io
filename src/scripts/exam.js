@@ -1392,7 +1392,8 @@ Exam.prototype = {
                 _this.$happyPerson.removeClass('hide');
                 _this._renderBlood(true);
                 _this.$successNumber.removeClass('hide');
-                nextHandler();
+
+                setTimeout(nextHandler, 2000);
             } else {
                 // 错误的显示灰色，正确的打钩
                 $('.exam .item').eq(index).removeClass('on').addClass('fail');
@@ -1444,7 +1445,7 @@ Exam.prototype = {
             }
 
             // 全部回答完毕
-            if (_this.index + 1 === 10 || true) {
+            if (_this.index + 1 === 10) {
                 _this.$container.addClass('hide');
                 return _this.params.finishHandler();
             }
@@ -1490,7 +1491,8 @@ Exam.prototype = {
             this.score = flag;
         }
 
-        this.$middle.css('width', this.score / 725 * 124 / 100 + 'rem');
+        this.score = Math.min(this.score, 710);
+        this.$middle.css('width', this.score / 710 * 124 / 100 + 'rem');
     }
 };
 

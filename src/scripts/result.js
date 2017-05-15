@@ -21,7 +21,7 @@ Result.prototype = {
     _initDialog: function() {
         $(document).on('click', '.result .js-dialog', function() {
             $(this).addClass('hide');
-        })
+        });
     },
     render: function() {
         var score = this.score,
@@ -38,6 +38,7 @@ Result.prototype = {
         } else if (score < 696) {
             src = '../img/result-696.jpg';
         } else {
+            score = this.score = 710;
             this.$show.addClass('on');
             src = '../img/result-710.jpg';
         }

@@ -300,6 +300,8 @@ a {
   left: 0;
   bottom: 0;
   right: 0;
+  background: url("/img/load-bg.jpg") no-repeat;
+  background-size: cover;
 }
 
 .load .process {

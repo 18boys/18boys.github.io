@@ -56,6 +56,7 @@ Result.prototype = {
             var src = _this.score >= 696 ? '/img/share-word-1.png' : '/img/share-word-2.png';
             _this.$share_word.attr('src', src);
             _this.$share.removeClass('hide').attr('display', 'block');
+            _this._initDialog();
         });
 
     }

@@ -34,12 +34,10 @@ PreLoading.prototype = {
             fileAry = [];
         _this.loadInterval = setInterval(function() {
             if (_this.i < len) {
-                if (_this.fileList[_this.i].search(/mp3/)) {
+                if (_this.fileList[_this.i].search(/mp3/) > -1) {
                     fileAry[_this.i] = new Audio();
                     fileAry[_this.i].onloadedmetadata = _this.loadPage(_this);
                     fileAry[_this.i].src =  _this.fileList[_this.i];
-
-                //} else if (_this.fileList[_this.i]['type'] == 'voice') {
                 } else {
                     fileAry[_this.i] = new Image();
                     fileAry[_this.i].onload = _this.loadPage(_this);

@@ -21,7 +21,6 @@ module.exports = [
     "/img/exam-top-bg-2.png",
     "/img/exam-top-bg-3.png",
     "/img/exam-top-bg-4.png",
-    "/img/img.text",
     "/img/load-bg.jpg",
     "/img/load-person.png",
     "/img/load-process.png",

@@ -43,13 +43,13 @@ Page.prototype = {
             function() {
                 initStart(function() {
                     initSelectPage(function() {
-                            var examer = new exam.Exam({
-                                finishHandler: function() {
-                                    new Result(examer.score);
-                            });
-                        }
-                    );
-                });
+                        var examer = new exam.Exam({
+                            finishHandler: function() {
+                                new Result(examer.score);
+                            }
+                        });
+                    });
+                })
             }
         ,voiceList);
     },

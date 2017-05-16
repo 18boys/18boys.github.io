@@ -1357,7 +1357,7 @@ Exam.prototype = {
         this._renderBlood(425);
         this.render(0);
     },
-    render(index) {
+    render:function(index) {
         var width = 12.5 * (index + 1);
 
         this.index = index;

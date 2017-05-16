@@ -857,7 +857,7 @@
 
 ;(function(__context){
     var module = {
-        id : "b4090c2f5847f4152a73fd81c20e5dfe" ,
+        id : "28730111e86be621b58feca37aa59d1f" ,
         filename : "fileList.js" ,
         exports : {}
     };
@@ -887,7 +887,6 @@
     "/img/exam-top-bg-2.png",
     "/img/exam-top-bg-3.png",
     "/img/exam-top-bg-4.png",
-    "/img/img.text",
     "/img/load-bg.jpg",
     "/img/load-person.png",
     "/img/load-process.png",
@@ -928,13 +927,13 @@
 ];
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "b4090c2f5847f4152a73fd81c20e5dfe" ] = module.exports;
+    __context.____MODULES[ "28730111e86be621b58feca37aa59d1f" ] = module.exports;
 })(this);
 
 
 ;(function(__context){
     var module = {
-        id : "96e2a14047080bb852c50ce0b2dde32f" ,
+        id : "7e25f0e265873bd42d70572dbdd3956a" ,
         filename : "load.js" ,
         exports : {}
     };
@@ -945,7 +944,7 @@
  * 选择四六级选项页面
  */
 
-var fileList =__context.____MODULES['b4090c2f5847f4152a73fd81c20e5dfe'];
+var fileList =__context.____MODULES['28730111e86be621b58feca37aa59d1f'];
 
 var $load_page = $('.load');
 var $load_blood = $load_page.find('.blood');
@@ -962,8 +961,6 @@ var PreLoading = function(options) {
     this.voicePath = '/voice';
     // 页面imglist集合
     this.fileList = fileList.concat(options.voiceList||[]);
-    console.log(this.fileList);
-
     // 使用配置参数
     this.options = options;
     this.makeLoadPage();
@@ -979,12 +976,10 @@ PreLoading.prototype = {
             fileAry = [];
         _this.loadInterval = setInterval(function() {
             if (_this.i < len) {
-                if (_this.fileList[_this.i].search(/mp3/)) {
+                if (_this.fileList[_this.i].search(/mp3/) > -1) {
                     fileAry[_this.i] = new Audio();
                     fileAry[_this.i].onloadedmetadata = _this.loadPage(_this);
                     fileAry[_this.i].src =  _this.fileList[_this.i];
-
-                //} else if (_this.fileList[_this.i]['type'] == 'voice') {
                 } else {
                     fileAry[_this.i] = new Image();
                     fileAry[_this.i].onload = _this.loadPage(_this);
@@ -1035,7 +1030,7 @@ module.exports = {
 
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "96e2a14047080bb852c50ce0b2dde32f" ] = module.exports;
+    __context.____MODULES[ "7e25f0e265873bd42d70572dbdd3956a" ] = module.exports;
 })(this);
 
 
@@ -1972,7 +1967,7 @@ if (typeof module !== "undefined") module.exports = window.QTMPL["exam"];
 
 ;(function(__context){
     var module = {
-        id : "477ac18c9c02caa8c5904e11642d43a3" ,
+        id : "52cf665d95feb780b59dfbaa5ffbd578" ,
         filename : "exam.js" ,
         exports : {}
     };
@@ -3338,7 +3333,7 @@ Exam.prototype = {
         this._renderBlood(425);
         this.render(0);
     },
-    render(index) {
+    render:function(index) {
         var width = 12.5 * (index + 1);
 
         this.index = index;
@@ -3482,13 +3477,13 @@ module.exports = {
 };
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "477ac18c9c02caa8c5904e11642d43a3" ] = module.exports;
+    __context.____MODULES[ "52cf665d95feb780b59dfbaa5ffbd578" ] = module.exports;
 })(this);
 
 
 ;(function(__context){
     var module = {
-        id : "e9e1c10275afd73526b68dbcd87efcd1" ,
+        id : "4340404de98a04a2d6bb18d9c77b1955" ,
         filename : "result.js" ,
         exports : {}
     };
@@ -3548,14 +3543,12 @@ Result.prototype = {
 
         var _this = this;
         $(document).on('click', '.result .jump', function() {
-            //_this.$princess.removeClass('hide').attr('display', 'block');
-            //_this._initDialog();
             location.href="https://ke.youdao.com/course/detail/2879?vendor=h5_cof_cet";
         }).on('click', '.result .show', function() {
             var src = _this.score >= 696 ? '/img/share-word-1.png' : '/img/share-word-2.png';
             _this.$share_word.attr('src', src);
             _this.$share.removeClass('hide').attr('display', 'block');
-            //_this._initDialog();
+            _this._initDialog();
         });
 
     }
@@ -3564,13 +3557,13 @@ Result.prototype = {
 module.exports = Result;
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "e9e1c10275afd73526b68dbcd87efcd1" ] = module.exports;
+    __context.____MODULES[ "4340404de98a04a2d6bb18d9c77b1955" ] = module.exports;
 })(this);
 
 
 ;(function(__context){
     var module = {
-        id : "72d10ae98deedef6733a5994aab6fbd9" ,
+        id : "bc33a1cc2a09748376292e5742f98927" ,
         filename : "index.js" ,
         exports : {}
     };
@@ -3579,11 +3572,11 @@ module.exports = Result;
 
     
 var FastClick =__context.____MODULES['624b017aec859a48d3c98140b61779f3'];
-var loadPage =__context.____MODULES['96e2a14047080bb852c50ce0b2dde32f'];
+var loadPage =__context.____MODULES['7e25f0e265873bd42d70572dbdd3956a'];
 var initSelectPage =__context.____MODULES['4beb89d4b1517fbe8ff53fa47aa8302f'];
 var initStart =__context.____MODULES['f42f6db5e3be3a9414fa3afa66bc4f86'];
-var exam =__context.____MODULES['477ac18c9c02caa8c5904e11642d43a3'];
-var Result =__context.____MODULES['e9e1c10275afd73526b68dbcd87efcd1'];
+var exam =__context.____MODULES['52cf665d95feb780b59dfbaa5ffbd578'];
+var Result =__context.____MODULES['4340404de98a04a2d6bb18d9c77b1955'];
 
 FastClick(document.body);
 
@@ -3622,15 +3615,13 @@ Page.prototype = {
             function() {
                 initStart(function() {
                     initSelectPage(function() {
-                            var examer = new exam.Exam({
-                                finishHandler: function() {
-                                    //new Result(examer.score);
-                                    new Result(500);
-                                }
-                            });
-                        }
-                    );
-                });
+                        var examer = new exam.Exam({
+                            finishHandler: function() {
+                                new Result(examer.score);
+                            }
+                        });
+                    });
+                })
             }
         ,voiceList);
     },
@@ -3658,5 +3649,5 @@ new Page();
 
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "72d10ae98deedef6733a5994aab6fbd9" ] = module.exports;
+    __context.____MODULES[ "bc33a1cc2a09748376292e5742f98927" ] = module.exports;
 })(this);

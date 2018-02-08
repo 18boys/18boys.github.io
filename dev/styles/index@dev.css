@@ -1,0 +1,201 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  font-size: 12px;
+  line-height: 1;
+  font-family: arial, "Hiragino Sans GB";
+  background: #f5f7f9;
+  overflow: hidden;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type="text"]::-ms-clear {
+  display: none;
+}
+
+@font-face {
+  font-family: 'SFPro';
+  src: url("//www.apple.com/wss/fonts/SF-Pro-Display/v1/sf-pro-display_regular.woff2");
+}
+
+html {
+  font-size: 100px;
+  font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.pageWrapper {
+  width: 3.75rem;
+  height: 6.67rem;
+  transform-origin: top left;
+}
+
+.pageWrapper .page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.font-sf {
+  font-family: 'SFPro';
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.IIV::-webkit-media-controls-play-button,
+.IIV::-webkit-media-controls-start-playback-button {
+  opacity: 0;
+  pointer-events: none;
+  width: 5px;
+}
+
+.home .pre-vidio {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.home .font-style {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.home .title {
+  width: 100%;
+  top: 0.8rem;
+  color: #54570e;
+  font-size: 0.14rem;
+}
+
+.home .title-detail {
+  top: 1.2rem;
+  color: #54570e;
+  line-height: 0.3rem;
+  font-size: 0.18rem;
+}
+
+.home .content {
+  top: 4.6rem;
+  color: #54570e;
+  font-size: 0.16rem;
+}
+
+.full-page .full-video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.share-page {
+  background: url("//shared.ydstatic.com/dict/market/cetResultPredict/imgs/load-bg.jpg") no-repeat;
+  background-size: cover;
+}
+
+.share-page .font-style {
+  position: absolute;
+  width: 100%;
+  color: #7d8011;
+  font-size: 0.14rem;
+}
+
+.share-page .title {
+  top: 0.8rem;
+}
+
+.share-page .title1 {
+  top: 1.2rem;
+}
+
+.share-page .title2 {
+  top: 1.5rem;
+}
+
+.share-page .title3 {
+  top: 2.0rem;
+}
+
+.share-page .title4 {
+  top: 2.8rem;
+}
+
+.share-page .conments {
+  margin: 1rem;
+}
+
+.share-page .buttons {
+  margin-top: 4rem;
+  position: relative;
+}
+
+.share-page .buttons .button {
+  height: 0.3rem;
+  width: 0.8rem;
+  background: #1f5cff;
+  text-align: center;
+  border-radius: 0.05rem;
+  line-height: 0.3rem;
+}
+
+.share-page .buttons .repeat-button {
+  position: absolute;
+  left: 0.8rem;
+}
+
+.share-page .buttons .share-button {
+  position: absolute;
+  right: 0.8rem;
+}

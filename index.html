@@ -1,125 +1,78 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>有道考神四六级</title>
-    <link rel="stylesheet" href="/dev/styles/index@dev.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>芒果快跑啊</title>
+  <link rel="stylesheet" href="../prd/styles/index.css" />
 </head>
-<body>
-<div class="shareWrapper hide"><img src="../img/share.jpg" alt=""/></div>
-<div class="pageWrapper">
-    <div class="load hide">
-        <img src="/img/load-process.png" class="process">
-        <div class="blood">
-            <div class="loading-current"></div>
-        </div>
-        <div class="percent">
-            <span id="percent">0</span>
-            <span class="sign">%</span>
-        </div>
-        <img src="/img/load-person.png " class="person">
-    </div>
-    <div class="start hide">
-        <img src="/img/start_word.png" class="word">
-        <img src="/img/start_book1.png" class="book1">
-        <img src="/img/start_book2.png" class="book2">
-        <img src="/img/start_book3.png" class="book3">
-        <img src="/img/start_person.png" class="person">
-    </div>
-    <div class="start-select hide">
-        <div class="word hide"></div>
-        <div class="js-button button-4-bg hide" data-rlog="levelfour"></div>
-        <div class="js-button button-6-bg hide" data-rlog="levelsix"></div>
-    </div>
-    <div class="exam hide">
-        <img src="/img/exam-city.png" class="city hide">
-        <img src="/img/exam-success-person.png" class="happy-person hide ani elastic-in-left">
-        <img src="/img/exam-fail-person.png" class="unhappy-person hide ani elastic-in-down">
-        <span class="success-number fade-in-down ani hide">+ 30</span>
-        <span class="fail-number fade-in-down ani hide">- 40</span>
 
-        <!--血槽-->
-        <div class="blood">
-            <img class="bottom" src="/img/exam-blood-1.png"/>
-            <div class="middle"></div>
-            <img class="top" src="/img/exam-blood-2.png"/>
-            <div class="num font1">1 / 10</div>
-            <div class="bg"></div>
-        </div>
-
-        <!--答题区域-->
-        <div class="board"></div>
-
-        <!--确定按钮-->
-        <div class="btn hide"></div>
-
-        <!--点击确定之后下一题的容器-->
-        <div class="nextWrapper hide">
-            <img class="people" src="/img/exam-people.png"/>
-            <img class="music" src="/img/exam-music.png"/>
-            <img class="explain" src="/img/exam-text.png"/>
-            <img class="next" src="/img/exam-next.png"/>
-        </div>
-        <img class="top-bg-1" src="/img/exam-top-bg-1.png">
-        <img class="top-bg-2" src="/img/exam-top-bg-2.png">
-        <img class="top-bg-3" src="/img/exam-top-bg-3.png">
-        <img class="top-bg-4" src="/img/exam-top-bg-4.png">
-
-        <!--点击文字解析的容器-->
-        <div class="explain-layout hide">
-            <div class="container"></div>
-            <div class="close"></div>
-            <div class="next"></div>
-            <ul></ul>
-        </div>
+<div class='pageWrapper'>
+  <div class='page home'>
+    <video
+        loop
+        class="pre-vidio"
+        id="pre-vidio"
+        src="video/test1.mov"
+        playsinline
+    >
+    </video>
+    <p class="title font-style">-春节前夕-</p>
+    <p class="title-detail font-style">我们采访了<br>独自在北京打拼的人</p>
+    <p class="content font-style">他们的故事<br />也许就是你的故事<br>
+      <img src="img/play.png" class="play-icon">
+    </p>
+  </div>
+  <div class='page full-page hide'>
+    <video
+        preload="auto"
+        class="full-video"
+        id="full-vidio"
+        playsinline
+        src="video/test1.mov">
+    </video>
+  </div>
+  <div class='page share-page hide'>
+    <div class="conments">
+      <p class="title font-style">要抱抱</p>
+      <p class="title1 font-style">我就是这个傲娇,宝宝不哭</p>
+      <p class="title2 font-style">哈哈,要哭哭哭</p>
+      <p class="title4 font-style">我们要多陪陪父母,欧耶呃呃呃呃呃呃</p>
     </div>
-    <div class="result hide">
-        <span class="score"></span>
-        <span class="score copy"></span>
-        <img class="img" src=""/>
-        <div class="jump" data-rlog="viewcourse"></div>
-        <div class="show"></div>
-        <div class="share js-dialog hide">
-            <img class="share-brave" src="/img/share-brave.png">
-            <img class="share-word" src="/img/share-word-2.png">
-        </div>
-        <div class="princess js-dialog hide">
-            <img class="princess-bg" src="/img/princess-bg.png">
-            <img class="princess-word" src="/img/princess-word.png">
-            <a href="https://ke.youdao.com/course/detail/2879?vendor=h5_cof_cet"></a>
-        </div>
+    <div class="buttons">
+      <div class="button repeat-button">重新播放</div>
+      <div class="button share-button">聊聊你的故事</div>
     </div>
+
+  </div>
+
 </div>
-<img class="music-bg music-bg-open hide" src="/img/music-open.png">
-<img class="music-bg music-bg-close" src="/img/music-close.png">
+
+<!--lib-->
 <script src="//shared.ydstatic.com/js/zepto/1.1.6.js"></script>
-<script src="//shared.ydstatic.com/js/ydk/ydk-1.4.4-min.js"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
-<script type="text/javascript" src="/dev/scripts/index@dev.js"></script>
+<!--业务 js-->
+<script type="text/javascript" src="../prd/scripts/index.js"></script>
+
+<!--首页视频播放相关-->
 <script>
-    var _rlog = _rlog || [];
-    _rlog.push(["_setAccount", "course_market"]);
-
-    ydk.config({
-        debug: false,
-        jsApiList: ['checkJsApi', 'share']
-    });
-    ydk.share({
-        type: 'wechat',
-        title: '【有道考神】这是一个超厉害的四六级成绩预测',
-        desc: '勇士来！闯关自测考试成绩，我就不信有人能见到公主',
-        imgUrl: 'http://' + location.host + '/img/share.jpg',
-        link: location.href,
-        shift: true,
-        success: function() {
-            _rlog.push(["_addPost" , "vendor" , "fromshare"]);
-            _rlog.push(["_trackEvent" , "sharesuccessful"]);
-            $('.princess').removeClass('hide').attr('display', 'block');
-        }
-    })
+  //  let bgAudio = document.getElementById('pre-vidio');
+  ////  bgAudio.play();
+  //  document.addEventListener("WeixinJSBridgeReady", function () {
+  //    bgAudio.play();
+  //  }, false);
+  // 其他应用在click/touch时触发播放
+  //  document.addEventListener('click', function () {
+  //    bgAudio.play()
+  //  })
+  //  document.addEventListener('touchstart', function () {
+  //    bgAudio.play()
+  //  })
 </script>
-<script src="//shared.ydstatic.com/js/rlog/v1.js"></script>
+
+<!--分享-->
+<script src="//shared.ydstatic.com/js/ydk/ydk-1.4.4-min.js"></script>
 </body>
 </html>

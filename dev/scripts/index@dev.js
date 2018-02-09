@@ -1273,7 +1273,7 @@ function enableInlineVideo(video, opts) {
 
 ;(function(__context){
     var module = {
-        id : "4b0ef809a9a48143d95b33a1ed33eac8" ,
+        id : "4973df5a92d8dfdc281a4091bf228cd0" ,
         filename : "index.js" ,
         exports : {}
     };
@@ -1287,7 +1287,6 @@ var FastClick =__context.____MODULES['624b017aec859a48d3c98140b61779f3'];
 var enableInlineVideo =__context.____MODULES['39bbf7c0c02391a3e76dad4fd8ba0d20'];
 FastClick(document.body);
 
-console.log('enableInlineVideo', enableInlineVideo);
 var screenWidth = document.body.clientWidth,
   screenHeight = document.body.clientHeight,
   originWidth = 375,
@@ -1297,6 +1296,7 @@ var Page = function () {
   this.$body = $('.pageWrapper');
   this.$home = $('.home');
   this.$full_page = $('.full-page');
+  this.$comment_page = $('.comment-page');
   this.$share_page = $('.share-page');
   this.init();
 };
@@ -1317,34 +1317,49 @@ Page.prototype = {
     var _this = this;
     var bgAudio = document.getElementById('pre-vidio');
     enableInlineVideo(bgAudio);
+    bgAudio.play();
     document.addEventListener("WeixinJSBridgeReady", function () {
       bgAudio.play();
     }, false);
+    document.addEventListener('click', function () {
+      bgAudio.play()
+    })
+    document.addEventListener('touchstart', function () {
+      bgAudio.play()
+    })
     $(document).on('click', '.home .play-icon', function (e) {
-      // 隐藏掉 home
-      _this.$home.addClass('hide').removeClass('on');
+      bgAudio = null;
       // 显示出来全屏播放页面
       _this._initFullPage();
+      // 隐藏掉 home
+      _this.$home.addClass('hide').removeClass('on');
     })
   },
   _initFullPage() {
     var _this = this;
     this.$full_page.addClass('on').removeClass('hide');
     var full_video = document.getElementById("full-vidio");
+    enableInlineVideo(full_video);
     // 开始播放
     full_video.play();
     $(full_video).on('ended', function (e) {
+      _this._initCommentPage();
       _this.$full_page.addClass('hide').removeClass('on');
+    })
+  },
+  _initCommentPage() {
+    var _this = this;
+    this.$comment_page.addClass('on').removeClass('hide');
+    $(document).on('click', '.comment-page .repeat-button', function (e) {
+      _this.$comment_page.addClass('hide').removeClass('on');
+      _this._initFullPage();
+    })
+    $(document).on('click', '.comment-page .share-button', function (e) {
       _this._initSharePage();
     })
   },
   _initSharePage() {
-    var _this = this;
     this.$share_page.addClass('on').removeClass('hide');
-    $(document).on('click', '.share-page .repeat-button', function (e) {
-      _this.$share_page.addClass('hide').removeClass('on');
-      _this._initFullPage();
-    })
   },
 };
 
@@ -1353,5 +1368,5 @@ new Page();
 
 
     })( module.exports , module , __context );
-    __context.____MODULES[ "4b0ef809a9a48143d95b33a1ed33eac8" ] = module.exports;
+    __context.____MODULES[ "4973df5a92d8dfdc281a4091bf228cd0" ] = module.exports;
 })(this);

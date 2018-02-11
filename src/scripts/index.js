@@ -6,7 +6,7 @@ FastClick(document.body);
 var screenWidth = document.body.clientWidth,
   screenHeight = document.body.clientHeight,
   originWidth = 375,
-  originHeight = 624;
+  originHeight = 604;
 
 var Page = function () {
   this.$body = $('.pageWrapper');

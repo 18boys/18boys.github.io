@@ -25,17 +25,6 @@ html {
   }
 }
 
-.font-sf {
-  font-family: 'SFPro';
-}
-
-//.hide {
-//  visibility: hidden;
-//}
-//
-//.show {
-//  visibility: visible;
-//}
 .hide {
   display: none;
 }
@@ -48,12 +37,9 @@ html {
   visibility: hidden;
 }
 
-//
-//.IIV::-webkit-media-controls-play-button,
-//.IIV::-webkit-media-controls-start-playback-button {
-//  opacity: 0;
-//  pointer-events: none;
-//  width: 5px;
-//}
+.visibility {
+  visibility: visible;
+}
+
 
 

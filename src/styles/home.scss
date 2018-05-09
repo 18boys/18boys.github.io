@@ -1,44 +1,32 @@
 .home {
-  background: url("//shared.youdao.com/dict/market/20180211letter/img/home-hand.jpeg") no-repeat;
+  background: url("/img/home.png") no-repeat;
   background-size: cover;
-  font-family: 'H55';
-  .mask {
-    width: 100%;
-    height: 100%;
+  .loading {
     position: absolute;
-    top: 0;
+    bottom: 0.75rem;
+    left: 0.37rem;
+    right: 0.37rem;
+    height: 0.7rem;
+    -webkit-animation:tada  1s linear infinite;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+    animation-delay:.5s;-webkit-animation-delay:.5s;
   }
-  .pre-vidio {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-  }
-  .font-style {
-    position: absolute;
-    text-align: center;
-    font-size: 0.24rem;
-    width: 100%;
-    color: #fff;
-    //color: #6a552f;
-    letter-spacing: 0.02rem;
-  }
-  .title1 {
-    top: 0.6rem;
-  }
-  .title2 {
-    top: 1.05rem;
-  }
-  .title3 {
-    top: 1.50rem;
-  }
-  .content {
-    top: 4rem;
-    font-size: 0.19rem;
-    line-height: 0.34rem;
-    letter-spacing: 0.05rem;
-  }
-  .play-icon {
-    width: 0.4rem;
-  }
+}
+
+//@-webkit-keyframes tada{
+//  0%{-webkit-transform:scale(1);}
+//  10%,20%{-webkit-transform:scale(1) rotate(-3deg);}
+//  30%,50%,70%,90%{-webkit-transform:scale(1) rotate(3deg);}
+//  40%,60%,80%{-webkit-transform:scale(1) rotate(-3deg);}
+//  100%{-webkit-transform:scale(1) rotate(0);}
+//}
+
+@-webkit-keyframes tada{
+  0%{-webkit-transform:scale(0.9);}
+  10%,20%{-webkit-transform:scale(1);}
+  30%,50%,70%,90%{-webkit-transform:scale(1.1);}
+  40%,60%,80%{-webkit-transform:scale(1.05);}
+  100%{-webkit-transform:scale(0.95);}
 }
 

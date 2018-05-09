@@ -1,45 +1,17 @@
 .comment-page {
-  background: url("//shared.youdao.com/dict/market/20180211letter/img/comment.jpg") no-repeat 5%;
+  background: url("/img/comment.png") no-repeat;
   background-size: cover;
-  font-family: 'H35';
-  .font-style {
-    color: #745a2d;
-    font-size: 0.14rem;
-    margin-top: 0.2rem;
-    letter-spacing: 0.03rem;
-    line-height: 0.35rem;
-    text-align:justify
-    //font-weight: 600;
-  }
-  .conments {
+  .button {
     position: absolute;
-    top: 0.60rem;
-    left: 0.58rem;
-    right: 0.58rem;
+    bottom: 0.7rem;
+    width: 1.3rem;
+    height: 0.8rem;
   }
-  .buttons {
-    margin-top: 4.8rem;
-    position: relative;
-    .button {
-      height: 0.50rem;
-      width: 1.44rem;
-      text-align: center;
-      border-radius: 0.25rem;
-      line-height: 0.5rem;
-      color: #a98442;
-      font-weight: 600;
-      font-size: 0.16rem;
-      border: #a98442 0.01rem solid;
-      letter-spacing: 0.02rem;
-    }
-    .repeat-button {
-      position: absolute;
-      left: 0.27rem;
-    }
-    .share-button {
-      position: absolute;
-      right: 0.27rem;
-    }
+  .class-button {
+    left: 0.33rem;
+  }
+  .share-button {
+    right: 0.33rem;
   }
 }
 

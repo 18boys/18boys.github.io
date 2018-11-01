@@ -1,24 +1,37 @@
-<!DOCTYPE html><html><head><meta charset=UTF-8><meta name=viewport content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv=X-UA-Compatible content="ie=edge"><title>写给100天后的你</title><script type=text/javascript src=//code.jquery.com/jquery-1.7.1.min.js></script><script>var _hmt = _hmt || [];
-    (function () {
+<!DOCTYPE html><html><head><meta charset=UTF-8><meta name=viewport content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv=X-UA-Compatible content="ie=edge"><title>写给100天后的你</title><script src=//cdn.bootcss.com/jquery/3.3.1/jquery.min.js></script><script>var browser = {
+      versions: function () {
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {							//移动终端浏览器版本信息
+          webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+          mobile: !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/), //是否为移动终端
+          weixin: !!u.match(/micromessenger/i),
+        };
+      }(),
+      language: (navigator.browserLanguage || navigator.language).toLowerCase()
+    };
+    var _hmt = _hmt || [];
+    (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?7c696beff44e0e0a1ec9ae2e0eff10f4";
+      hm.src = "https://hm.baidu.com/hm.js?526b9a24d358fd13a02c2c33f479ed76";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
-    })();</script><link href=/static/css/app.5c6b9c936d946b5a9cb3ddff8419b414.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.191553cd01083000e196.js></script><script type=text/javascript src=/static/js/app.98a8e3fd11f05ad9ce4c.js></script></body><script src=//shared.ydstatic.com/js/ydk/ydk-1.4.4-min.js></script><script>var host = (location.origin + location.pathname).split('#')[0].replace(/index(\d)?\.html/, '');
+    })();</script><link href=/static/css/app.6c150fa62fe152fcb34819b780ca8dd6.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.191553cd01083000e196.js></script><script type=text/javascript src=/static/js/app.a7f36945b96c0f2fc949.js></script></body><script src=//shared.ydstatic.com/js/ydk/ydk-1.4.4-min.js></script><script>var host = (location.origin + location.pathname).split('#')[0].replace(/index(\d)?\.html/, '');
   var link = (location.origin + location.pathname).split('#')[0];
   ydk.config({
     debug: false,
     jsApiList: ['checkJsApi', 'share', 'downloadImage', 'uploadImage', 'previewImage', 'chooseImage']
   });
-  ydk.share({
-    type: 'wechat',
-    title: '我给100天后的自己写了一封明信片',
-    desc: '你也来写一封吧',
-    imgUrl: host + '/static/img/little-share.jpeg',
-    //     imgUrl: 'http://shared.ydstatic.com/dict/market/wdgkt/static/img/little-share.jpeg',
-    link: link,
-    shift: true,
-    success: function () {
-      $('.share-page').addClass('hidden').removeClass('visibility')
-    }
-  })</script></html>
+  window.share=function(img,name){
+    ydk.share({
+      type: 'wechat',
+      title: '测试你是名著里的谁',
+      desc: '穿越进一本书,我竟然是主角'+name+'!快来看看你睡谁?',
+      imgUrl: host + '/static/img/'+img,
+      //     imgUrl: 'http://shared.ydstatic.com/dict/market/wdgkt/static/img/little-share.jpeg',
+      link: link,
+      shift: true,
+      success: function () {
+        $('.share-page').addClass('hidden').removeClass('visibility')
+      }
+    })
+  }</script></html>
